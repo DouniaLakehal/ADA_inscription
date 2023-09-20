@@ -1,19 +1,14 @@
-import { Component, OnInit, Renderer2 } from '@angular/core';
-import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
-import {Router} from "@angular/router";
-import {NavbarService} from "../shared/navbar/navbar.service";
+import {Component, OnInit, Renderer2} from '@angular/core';
+import {Router} from '@angular/router';
+import {NavbarService} from "../../../shared/navbar/navbar.service";
+import {NgbDateStruct} from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
-    selector: 'app-components',
-    templateUrl: './components.component.html',
-    styles: [`
-    ngb-progressbar {
-        margin-top: 5rem;
-    }
-    `]
+    selector: 'producteur',
+    templateUrl: './producteur.component.html',
+    styleUrls: ['./producteur.component.scss']
 })
-
-export class ComponentsComponent implements OnInit {
+export class ProducteurComponent implements OnInit {
 
     currDiv: string = 'A';
 
@@ -114,8 +109,7 @@ export class ComponentsComponent implements OnInit {
         }
     }
 
-    gotoHome(){
-        this.router.navigate(['/inscriptions']);  // define your component where you want to go
+    gotoRecap(){
+        this.router.navigate(['/recap']);  // define your component where you want to go
     }
-
 }

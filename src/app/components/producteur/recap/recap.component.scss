@@ -1,0 +1,77 @@
+.accordion1{
+  display: inline-block;
+  text-align: left;
+  margin: 1%;
+  width: 100%;
+}
+
+input[type=checkbox] { display:none; } /* to hide the checkbox itself */
+input[type=checkbox] + label:before {
+  font-family: FontAwesome;
+  display: inline-block;
+}
+
+input[type=checkbox] + label:before { content: "\f096"; } /* unchecked icon */
+input[type=checkbox] + label:before { letter-spacing: 10px; } /* space between checkbox and label */
+
+input[type=checkbox]:checked + label:before { content: "\f046"; } /* checked icon */
+input[type=checkbox]:checked + label:before { letter-spacing: 5px; } /* allow space for check mark */
+
+.accordion-content{
+  -webkit-transition: max-height 1s;
+  -moz-transition: max-height 1s;
+  -ms-transition: max-height 1s;
+  -o-transition: max-height 1s;
+  transition: max-height 1s;
+}
+
+.accordion-inner{
+  padding: 0 15px;
+}
+
+.accordion-toggle{
+  -webkit-transition: background .1s linear;
+  -moz-transition: background .1s linear;
+  -ms-transition: background .1s linear;
+  -o-transition: background .1s linear;
+  transition: background .1s linear;
+  background: #7ac29a;
+  border-radius: 3px;
+  color: #fff;
+  display: block;
+  font-size: 18px;
+  margin: 0 0 10px;
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+
+  &:hover{
+    background: darken(#7ac29a, 15%);
+  }
+
+}
+
+
+span{
+  margin-right: 30px;
+}
+input[type=radio]{
+  margin: 10px -5px 0;
+}
+
+.action-button {
+  width: 100px;
+  background: #a94442;
+  font-weight: bold;
+  color: white;
+  border: 0 none;
+  border-radius: 25px;
+  cursor: pointer;
+  padding: 10px 5px;
+  margin: 10px 5px;
+}
+
+.action-button:hover,
+.action-button:focus {
+  box-shadow: 0 0 0 2px white, 0 0 0 3px #a94442;
+}

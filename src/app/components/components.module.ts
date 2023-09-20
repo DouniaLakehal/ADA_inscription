@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { NouisliderModule } from 'ng2-nouislider';
 import { JwBootstrapSwitchNg2Module } from 'jw-bootstrap-switch-ng2';
 import { RouterModule } from '@angular/router';
@@ -14,6 +14,12 @@ import { ComponentsComponent } from './components.component';
 import { NotificationComponent } from './notification/notification.component';
 import { NgbdModalComponent } from './modal/modal.component';
 import { NgbdModalContent } from './modal/modal.component';
+import { ProducteurComponent } from './producteur/producteur/producteur.component';
+import {ProducteurService} from "./producteur/producteur/service/Producteur.service";
+import { InscriptionComponent } from './producteur/inscription/inscription/inscription.component';
+import { ProgressComponent } from './producteur/progress/progress.component';
+import { RecapComponent } from './producteur/recap/recap.component';
+
 
 @NgModule({
     imports: [
@@ -22,19 +28,24 @@ import { NgbdModalContent } from './modal/modal.component';
         NgbModule,
         NouisliderModule,
         RouterModule,
-        JwBootstrapSwitchNg2Module
+        JwBootstrapSwitchNg2Module,
+        ReactiveFormsModule,
     ],
     declarations: [
         ComponentsComponent,
+        ProducteurComponent,
         BasicelementsComponent,
         NavigationComponent,
         TypographyComponent,
         NucleoiconsComponent,
         NotificationComponent,
         NgbdModalComponent,
-        NgbdModalContent
+        NgbdModalContent,
+        InscriptionComponent,
+        ProgressComponent,
+        RecapComponent
     ],
-    entryComponents: [NgbdModalContent],
-    exports:[ ComponentsComponent ]
+    providers: [ProducteurService],
+    exports:[ ComponentsComponent, ProducteurComponent ]
 })
 export class ComponentsModule { }

@@ -19,40 +19,7 @@
                                     <label for="button3">EN</label>
                                 </div>
                                 <h1>Bienvenue</h1>
-                                <div class="login-text">
-                                    <div class="text" *ngIf="showDiv.previous">
-                                        <br>
-                                        <select class="form-control">
-                                            <option>Producteur</option>
-                                            <option>Juré</option>
-                                            <option>Consommateur</option>
-                                        </select>
-                                        <br>
-                                        <select class="form-control">
-                                            <option *ngFor="let order of orderTypes.orders">
-                                                {{order.orderType}}</option>
-                                        </select>
-                                        <br>
-                                        <input type="text" class="form-control" placeholder="Nom">
-                                        <br>
-                                        <input type="text" class="form-control" placeholder="Prenom">
-                                        <br>
-                                        <input type="text" class="form-control" placeholder="Email">
-                                        <br>
-                                        <input type="text" class="form-control" placeholder="Telephone">
-                                        <br>
-                                        <textarea type="text" class="form-control" placeholder="Adresse"></textarea>
-                                        <br>
-                                        <button class="button1 btn btn-success btn-block "
-                                                (click)="showDiv.previous = !showDiv.previous">Sauvegarder
-                                            <span></span>
-                                            <span></span>
-                                            <span></span>
-                                            <span></span>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div *ngIf="!showDiv.previous">
+                                <div>
                                     <p>
                                         sur la plateforme d'enregistrement pour la participation au Concours Marocain
                                         des produits du terroir de l'année 2023
@@ -64,7 +31,7 @@
                                     </small>
 
                                     <br/>
-                                    <label>INTRODUISEZ VOTRE CODE :</label>
+                                    <label>INTRODUISEZ VOTRE NUMERO :</label>
                                     <div class="input-group form-group-no-border"
                                          [ngClass]="{'input-group-focus':focus===true}">
                                         <div class="input-group-prepend">
@@ -75,18 +42,7 @@
 
                                         <input type="text" class="form-control" placeholder="Ex: CMPT01">
                                     </div>
-                                    <button class="btn btn-success btn-block btn-round" (click)="gotoHome()">ENVOYER
-                                    </button>
-                                    <h6 style="margin-top: 3%">Vous ne possédez pas encore de code d'accès ?</h6>
-                                    <small>Si vous ne disposez pas d'un code, il est possible de solliciter un code qui
-                                        vous
-                                        sera transmis sous 30 minutes</small>
-                                    <button class="button1 btn btn-success btn-block"
-                                            (click)="showDiv.previous = !showDiv.previous">DEMANDER UN CODE
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
+                                    <button class="btn btn-success btn-block btn-round" (click)="gotoRecap()">Afficher
                                     </button>
                                 </div>
                             </div>
