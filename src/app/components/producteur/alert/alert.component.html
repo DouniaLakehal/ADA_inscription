@@ -1,0 +1,57 @@
+<div class="modal-content modal-sm" style=" display:table;
+       position: absolute;
+       left: 38%;
+       right:0;
+       top: 38%; ">
+    <div class="modal-header">
+        <p>Veuillez conserver ce numéro et vérifier votre messagerie électronique, s'il vous plaît</p>
+    </div>
+    <div class="modal-body text-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" preserveAspectRatio="xMidYMid">
+            <defs>
+                <style>
+                    #icon-check path {
+                        fill: none;
+                        stroke: #0D9814;
+                        stroke-width: 10%;
+                        stroke-dasharray: 1000;
+                        /* stroke-dashoffset: 1000; */
+                        animation-name: dash;
+                        animation-duration: 2000ms;
+                        animation-timing-function: ease-in;
+                        /* animation-delay: 1000ms; */
+                        animation-iteration-count: 1;
+                        animation-direction: alternate;
+                        animation-fill-mode: both;
+                        animation-play-state: running;
+                    }
+                    #icon-check path:first-child {
+                        animation-delay: 500ms;
+                    }
+                    #icon-check path:last-child {
+                        animation-delay: 1000ms;
+                    }
+                    @keyframes dash {
+                        from {
+                            stroke-dashoffset: 1000;
+                        }
+                        to {
+                            stroke-dashoffset: 0;
+                        }
+                    }
+                </style>
+            </defs>
+            <g id="icon-check">
+                <path d="m 38.000382,20.350231 c -0.03277,1.678067 -0.299807,3.343003 -0.793961,4.946892 C 34.280679,34.797318 24.205921,40.127592 14.70441,37.201864 5.2028979,34.276531 -0.12807359,24.20312 2.7980471,14.702875 5.7237916,5.2026796 15.798551,-0.12759417 25.300063,2.7981343 c 0.199995,0.061392 0.399238,0.1269022 0.59735,0.1950849"></path>
+                <path d="M 10.429446,17.589261 18.012534,25.19242 36.535512,6.6434439"></path>
+            </g>
+
+        </svg>
+        <p class="mt-2">CMPT0001-D</p>
+    </div>
+    <div class="modal-footer" style="justify-content: center !important; background-color: #9DC83E">
+        <button type="button" style="    background-color: white;
+    border-color: #9DC83E;
+    color: #9DC83E;" class="btn btn-primary" (click)="reload()">OK</button>
+    </div>
+</div>

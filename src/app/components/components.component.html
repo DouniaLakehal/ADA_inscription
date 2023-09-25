@@ -2,49 +2,104 @@
     <div class="page-header section-dark" style="background-image: url('assets/img/antoine-barres.png')">
         <div class="filter"></div>
         <div class="content-center">
-            <div class="container row">
-                <div class="col-lg-6">
+            <div class="row">
+                <div class="col-lg-5 col-md-6 col-sm-12">
                     <div class="card card-register">
                         <form class="register-form" ngSubmit="setInput()">
                             <div class="call-text">
-                                <div class="stv-radio-buttons-wrapper">
-                                    <input type="radio" class="stv-radio-button" name="radioButtonTest" value="1"
-                                           id="button1" checked/>
-                                    <label for="button1">FR</label>
-                                    <input type="radio" class="stv-radio-button" name="radioButtonTest" value="2"
-                                           id="button2"/>
-                                    <label for="button2">AR</label>
-                                    <input type="radio" class="stv-radio-button" name="radioButtonTest" value="3"
-                                           id="button3"/>
-                                    <label for="button3">EN</label>
-                                </div>
                                 <h1>Bienvenue</h1>
                                 <div class="login-text">
                                     <div class="text" *ngIf="showDiv.previous">
                                         <br>
-                                        <select class="form-control">
-                                            <option>Producteur</option>
-                                            <option>Juré</option>
-                                            <option>Consommateur</option>
-                                        </select>
+                                        <div class="radiobutton">
+                                            <label class="label-custom">
+                                                <input type="radio" name="radio" checked>
+                                                <span class="checkmark"></span>
+                                                <span class="label-text">Producteur</span>
+                                            </label>
+                                            <label class="label-custom">
+                                                <input type="radio" name="radio">
+                                                <span class="checkmark"></span>
+                                                <span class="label-text">Juré</span>
+                                            </label>
+                                            <label class="label-custom">
+                                                <input type="radio" name="radio">
+                                                <span class="checkmark"></span>
+                                                <span class="label-text">Consommateur</span>
+                                            </label>
+                                        </div>
                                         <br>
-                                        <select class="form-control">
-                                            <option *ngFor="let order of orderTypes.orders">
-                                                {{order.orderType}}</option>
-                                        </select>
-                                        <br>
-                                        <input type="text" class="form-control" placeholder="Nom">
-                                        <br>
-                                        <input type="text" class="form-control" placeholder="Prenom">
-                                        <br>
-                                        <input type="text" class="form-control" placeholder="Email">
-                                        <br>
-                                        <input type="text" class="form-control" placeholder="Telephone">
-                                        <br>
+                                        <label>Groupement / Société</label>
+                                        <ngx-autocomplete [searchKeyword]="'name'" [inputId]="'searchEmployee'"
+                                                          [placeholderValue]="'Groupement / Société'" [entries]="employees" (selectedValue)="selectEvent($event)">
+                                        </ngx-autocomplete>
+
+                                        <div class="top-row">
+                                            <div class="field-wrap">
+                                                <label>Nom</label>
+                                                <input type="text" class="form-control" placeholder="Nom">
+                                            </div>
+                                            <div class="field-wrap">
+                                                <label>Prénom</label>
+                                                <input type="text" class="form-control" placeholder="Prenom">
+                                            </div>
+                                        </div>
+                                        <div class="top-row">
+                                            <div class="field-wrap">
+                                                <label>Région</label>
+                                                <select class="form-control">
+                                                    <option>Chaouia-Ouardigha</option>
+                                                    <option>Doukkala-Abda</option>
+                                                    <option>Fès-Boulemane</option>
+                                                    <option>Gharb-Chrarda-Beni Hssen</option>
+                                                    <option>Grand Casablanca</option>
+                                                    <option>Guelmim-Es Semara</option>
+                                                    <option>Laâyoune-Boujdour-Sakia el Hamra</option>
+                                                    <option>Marrakech-Tensift-Al Haouz</option>
+                                                    <option>Meknès-Tafilalet</option>
+                                                    <option>L'Oriental</option>
+                                                    <option>Oued ed Dahab-Lagouira</option>
+                                                    <option>Rabat-Salé-Zemmour-Zaër</option>
+                                                    <option>Souss-Massa-Drâa</option>
+                                                    <option>Tadla-Azilal</option>
+                                                    <option>Tanger-Tétouan</option>
+                                                    <option>Taza-Al Hoceïma-Taounate</option>
+                                                </select>
+                                            </div>
+                                            <div class="field-wrap">
+                                                <label>Province</label>
+                                                <select class="form-control">
+                                                    <option>Préfecture de Rabat</option>
+                                                    <option>Préfecture de Salé</option>
+                                                    <option>Préfecture de Skhirat-Témara</option>
+                                                    <option>Province de Khémisset</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="top-row">
+                                            <div class="field-wrap">
+                                                <label>Email</label>
+                                                <input type="text" class="form-control" placeholder="Email">
+                                            </div>
+                                            <div class="field-wrap">
+                                                <label>Confirmation Email</label>
+                                                <input type="text" class="form-control" placeholder="Confirmation">
+                                            </div>
+                                        </div>
+                                        <div class="top-row">
+                                            <div class="field-wrap">
+                                                <label>Téléphone</label>
+                                                <input type="text" class="form-control" placeholder="Téléphone">
+                                            </div>
+                                            <div class="field-wrap">
+                                                <label>Fax</label>
+                                                <input type="text" class="form-control" placeholder="Fax">
+                                            </div>
+                                        </div>
+                                        <label>Adresse</label>
                                         <textarea type="text" class="form-control" placeholder="Adresse"></textarea>
-                                        <br>
                                         <button class="button1 btn btn-success btn-block "
-                                                (click)="showDiv.previous = !showDiv.previous">Sauvegarder
+                                                (click)=showAlert()>Sauvegarder
                                             <span></span>
                                             <span></span>
                                             <span></span>
@@ -53,15 +108,15 @@
                                     </div>
                                 </div>
                                 <div *ngIf="!showDiv.previous">
-                                    <p>
+                                    <p style="font-size: 24px !important;">
                                         sur la plateforme d'enregistrement pour la participation au Concours Marocain
                                         des produits du terroir de l'année 2023
                                     </p>
-                                    <small>
+                                    <p style="font-size: 20px !important; margin-top: 3%">
                                         Afin d'accéder à votre compte, inclure de nouveaux produits, réserver un espace
                                         ou vous inscrire en tant que membre du juré, veuillez saisir le code
                                         d'inscription qui vous a été envoyé par e-mail.
-                                    </small>
+                                    </p>
 
                                     <br/>
                                     <label>INTRODUISEZ VOTRE CODE :</label>
@@ -78,9 +133,6 @@
                                     <button class="btn btn-success btn-block btn-round" (click)="gotoHome()">ENVOYER
                                     </button>
                                     <h6 style="margin-top: 3%">Vous ne possédez pas encore de code d'accès ?</h6>
-                                    <small>Si vous ne disposez pas d'un code, il est possible de solliciter un code qui
-                                        vous
-                                        sera transmis sous 30 minutes</small>
                                     <button class="button1 btn btn-success btn-block"
                                             (click)="showDiv.previous = !showDiv.previous">DEMANDER UN CODE
                                         <span></span>
@@ -91,74 +143,20 @@
                                 </div>
                             </div>
 
-
                         </form>
                     </div>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-4 col-md-6 col-sm-12">
                     <div class="title-brand">
-                        <div class="angular-logo">
-                            <img src="assets/img/angular2-logo.png" alt="">
-                        </div>
-                        <!--<h6 class="presentation-title">CONCOURS MAROCAIN
-                            DES PRODUITS DU
-                            TERROIRE
-                        </h6>-->
-
-                        <div class="waviy">
-                            <span style="--i:1">C</span>
-                            <span style="--i:2">O</span>
-                            <span style="--i:3">N</span>
-                            <span style="--i:4">C</span>
-                            <span style="--i:5">O</span>
-                            <span style="--i:6">U</span>
-                            <span style="--i:7">R</span>
-                            <span style="--i:8">S</span>
-                            <span style="--i:9">&nbsp;</span>
-                            <span style="--i:10">M</span>
-                            <span style="--i:11">A</span>
-                            <span style="--i:12">R</span>
-                            <span style="--i:13">O</span>
-                            <span style="--i:14">C</span>
-                            <span style="--i:15">A</span>
-                            <span style="--i:16">I</span>
-                            <span style="--i:17">N</span>
-                            <span style="--i:18">&nbsp;</span>
-                            <span style="--i:19">D</span>
-                            <span style="--i:20">E</span>
-                            <span style="--i:21">S</span>
-                            <span style="--i:21">&nbsp;</span>
-                            <span style="--i:22">P</span>
-                            <span style="--i:23">R</span>
-                            <span style="--i:24">O</span>
-                            <span style="--i:25">D</span>
-                            <span style="--i:26">U</span>
-                            <span style="--i:27">I</span>
-                            <span style="--i:29">T</span>
-                            <span style="--i:30">S</span>
-                            <span style="--i:31">&nbsp;</span>
-                            <span style="--i:32">D</span>
-                            <span style="--i:33">U</span>
-                            <span style="--i:34">&nbsp;</span>
-                            <span style="--i:35">T</span>
-                            <span style="--i:36">E</span>
-                            <span style="--i:37">R</span>
-                            <span style="--i:38">R</span>
-                            <span style="--i:39">O</span>
-                            <span style="--i:40">I</span>
-                            <span style="--i:41">R</span>
-
-                        </div>
-
+                        <p class="p-txt">CONCOURS MAROCAIN DES PRODUITS DU TERROIR</p>
                     </div>
                 </div>
-
-
-                <div class="dvlpdnvr">
-                    <svg class="shield" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
-                         xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                         width="299px" height="334.571px" viewBox="0 0 299 334.571"
-                         enable-background="new 0 0 299 334.571" xml:space="preserve">
+                <div class="col-lg-3 col-md-6 col-sm-12">
+                    <div class="dvlpdnvr">
+                        <svg class="shield" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                             xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                             width="299px" height="334.571px" viewBox="0 0 299 334.571"
+                             enable-background="new 0 0 299 334.571" xml:space="preserve">
   <g>
     <polygon class="shield-bg" fill="#231F20"
              points="31.176,298.203 4.381,4 294.619,4 267.824,298.203 149.5,330.426 	"/>
@@ -166,17 +164,18 @@
       l27.444,301.333L149.5,334.571l122.056-33.238L299,0L299,0z"/>
   </g>
   </svg>
-                    <div class="logo1">
-                        <div class="d">C</div>
-                        <div class="l">M</div>
-                        <div class="v">P</div>
-                        <div class="p">T</div>
-                    </div>
-                    <h1>Concours Marocaine</h1>
-                    <h2>2023</h2>
-                    <div class="ribbon">
-                        <div class="mask">
-                            <div class="tickets">Produits du terroir</div>
+                        <div class="logo1">
+                            <div class="d">C</div>
+                            <div class="l">M</div>
+                            <div class="v">P</div>
+                            <div class="p">T</div>
+                        </div>
+                        <h1>Concours Marocain</h1>
+                        <h2>2023</h2>
+                        <div class="ribbon">
+                            <div class="mask">
+                                <div class="tickets">Produits du terroir</div>
+                            </div>
                         </div>
                     </div>
                 </div>

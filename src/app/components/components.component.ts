@@ -2,6 +2,8 @@ import { Component, OnInit, Renderer2 } from '@angular/core';
 import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import {Router} from "@angular/router";
 import {NavbarService} from "../shared/navbar/navbar.service";
+import {SimpleModalService} from "ngx-simple-modal";
+import {AlertComponent} from "./producteur/alert/alert.component";
 
 @Component({
     selector: 'app-components',
@@ -25,54 +27,6 @@ export class ComponentsComponent implements OnInit {
         return Array.isArray(value);
     }
 
-    orderTypes = {
-        id: 1,
-        orders: [
-            {
-                id: 1,
-                orderType: "CPAM",
-                nom: "Ahmed",
-                prenom: "Alami",
-                email: "Ahmed.alami@cpam.com"
-            },
-            {
-                id: 2,
-                orderType: "Twins group",
-                nom: "Ahmed",
-                prenom: "Alami",
-                email: "Ahmed.alami@cpam.com"
-            },
-            {
-                id: 3,
-                orderType: "CGU",
-                nom: "Ahmed",
-                prenom: "Alami",
-                email: "Ahmed.alami@cpam.com"
-            },
-            {
-                id: 4,
-                orderType: "RSI",
-                nom: "Ahmed",
-                prenom: "Alami",
-                email: "Ahmed.alami@cpam.com"
-            },
-            {
-                id: 5,
-                orderType: "SENCRL",
-                nom: "Ahmed",
-                prenom: "Alami",
-                email: "Ahmed.alami@cpam.com"
-            },
-            {
-                id: 6,
-                orderType: "XLS CONSULTING",
-                nom: "Ahmed",
-                prenom: "Alami",
-                email: "Ahmed.alami@cpam.com"
-            }
-        ]
-    };
-
     showDiv = {
         previous : false
     }
@@ -89,7 +43,13 @@ export class ComponentsComponent implements OnInit {
     date: {year: number, month: number};
     model: NgbDateStruct;
 
-    constructor( private renderer : Renderer2, private router: Router, public nav: NavbarService) {}
+    constructor( private renderer : Renderer2, private router: Router, public nav: NavbarService,
+                 private SimpleModalService: SimpleModalService) {}
+
+
+    showAlert() {
+        this.SimpleModalService.addModal(AlertComponent, {title: 'Alert title!', message: 'Alert message!!!'});
+    }
 
     isWeekend(date: NgbDateStruct) {
         const d = new Date(date.year, date.month - 1, date.day);
@@ -113,9 +73,77 @@ export class ComponentsComponent implements OnInit {
             });
         }
     }
-
     gotoHome(){
-        this.router.navigate(['/inscriptions']);  // define your component where you want to go
+        this.router.navigate(['/accueil']);  // define your component where you want to go
+    }
+
+    title = "Ngx Angular AutoComplete";
+    selected_employee: any ;
+    public employees = [
+        {
+            id: 1,
+            name: "CPAM"
+        },
+        {
+            id: 2,
+            name: "Twins group"
+        },
+        {
+            id: 3,
+            name: "CGU"
+        },
+        {
+            id: 4,
+            name: "SENCRL"
+        },
+        {
+            id: 5,
+            name: "XLS CONSULTING"
+        },
+        {
+            id: 6,
+            name: "CTM"
+        },
+        {
+            id: 7,
+            name: "Alfons"
+        },
+        {
+            id: 8,
+            name: "Rycca"
+        },
+        {
+            id: 9,
+            name: "Mandy"
+        },
+        {
+            id: 10,
+            name: "Bunni"
+        },
+        {
+            id: 11,
+            name: "Stepha"
+        },
+        {
+            id: 12,
+            name: "Pete"
+        },
+        {
+            id: 13,
+            name: "Keary"
+        },
+        {
+            id: 14,
+            name: "Esme"
+        },
+        {
+            id: 15,
+            name: "Juieta"
+        }
+    ];
+
+    selectEvent(event) {
+        this.selected_employee = JSON.stringify(event)
     }
 
 }

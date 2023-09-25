@@ -19,81 +19,150 @@
                                     </h2>
                                 </div>
                             </header>
-                            <div id="top" class="page-wrap" style="margin-top: 7%;">
-                                <div class="top-row">
-                                    <div class="field-wrap">
-                                        <input type="text" placeholder="Nom, prénom du producteur/président/gérant"/>
+                            <div id="top" class="page-wrap text-left" style="margin-top: 7%;">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <label>Nom, prénom du producteur/président/gérant</label>
+                                        <input type="text" value="Ahmed alami"
+                                               placeholder="Nom, prénom du producteur/président/gérant"/>
                                     </div>
 
-                                    <div class="field-wrap">
-                                        <input type="text" placeholder="Nom du Groupement /société"/>
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <label>Nom du Groupement /société</label>
+                                        <input type="text" value="XLS Consulting BIO"
+                                               placeholder="Nom du Groupement /société"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <label>Adresse</label>
+                                        <input placeholder="Adresse" value="40, Rue du 16 Novembre 10000, Rabat"
+                                               name="adresse"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <label>Région</label>
+                                        <select class="form-control">
+                                            <option>Chaouia-Ouardigha</option>
+                                            <option>Doukkala-Abda</option>
+                                            <option>Fès-Boulemane</option>
+                                            <option>Gharb-Chrarda-Beni Hssen</option>
+                                            <option>Grand Casablanca</option>
+                                            <option>Guelmim-Es Semara</option>
+                                            <option>Laâyoune-Boujdour-Sakia el Hamra</option>
+                                            <option>Marrakech-Tensift-Al Haouz</option>
+                                            <option>Meknès-Tafilalet</option>
+                                            <option>L'Oriental</option>
+                                            <option>Oued ed Dahab-Lagouira</option>
+                                            <option selected>Rabat-Salé-Zemmour-Zaër</option>
+                                            <option>Souss-Massa-Drâa</option>
+                                            <option>Tadla-Azilal</option>
+                                            <option>Tanger-Tétouan</option>
+                                            <option>Taza-Al Hoceïma-Taounate</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <label>Ville / Province</label>
+                                        <select class="form-control">
+                                            <option selected>Préfecture de Rabat</option>
+                                            <option>Préfecture de Salé</option>
+                                            <option>Préfecture de Skhirat-Témara</option>
+                                            <option>Province de Khémisset</option>
+                                        </select>
                                     </div>
                                 </div>
 
-                                <input placeholder="Adresse" name="adresse"/>
-
-                                <div class="top-row">
-                                    <div class="field-wrap">
-                                        <input type="text" placeholder="Ville / Province"/>
-                                    </div>
-                                    <div class="field-wrap">
-                                        <input type="text" placeholder="Région"/>
-                                    </div>
-                                </div>
-
-                                <div class="top-row">
-                                    <div class="field-wrap">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <label>Date de création</label>
                                         <input type="text" onfocus="(this.type='date')"
                                                onblur="(this.type= this.value ? 'date' : 'text')"
                                                placeholder="Date de création "/>
                                     </div>
-                                    <div class="field-wrap">
+                                    <div class="col-lg-4 col-md-4 col-sm-12">
+                                        <label>Nombre d’adhérents</label>
                                         <input type="number" placeholder="Nombre d’adhérents "/>
                                     </div>
+                                    <div class="col-lg-2 col-md-2 col-sm-12">
+                                        <label>/ femmes</label>
+                                        <input type="number" placeholder="femmes "/>
+                                    </div>
                                 </div>
 
-                                <div class="top-row-tree">
-                                    <div class="field-wrap">
-                                        <input type="number" placeholder="Tél "/>
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <label>Tél</label>
+                                        <input type="number" value="06 65 230 230" placeholder="Tél "/>
                                     </div>
-                                    <div class="field-wrap">
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <label>Mobile</label>
                                         <input type="number" placeholder="Mobile "/>
                                     </div>
-                                    <div class="field-wrap">
-                                        <input type="number" placeholder="Fax "/>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <label>Fax</label>
+                                        <input type="number" value="05 35 650 310" placeholder="Fax "/>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <label>Email</label>
+                                        <input type="text" value="Ahmed.Alami.Bio@gmail.com" placeholder="Email"/>
                                     </div>
                                 </div>
-                                <input type="number" placeholder="Email"/>
 
-                                <div class="top-row">
-                                    <div class="field-wrap">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <label>Filière principale</label>
                                         <input type="text" placeholder="Filière principale "/>
                                     </div>
-                                    <div class="field-wrap">
+                                    <div class="col-lg-4 col-md-4 col-sm-12">
+                                        <label>Production annuelle</label>
                                         <input type="text" placeholder="Production annuelle "/>
                                     </div>
-                                </div>
-
-                                <input type="text" placeholder="Autres produits "/>
-
-                                <hr style="border: 2px solid darkgray;"/>
-
-                                <div class="top-row-tree">
-                                    <div class="field-wrap">
-                                        <input type="text" placeholder="Nom "/>
-                                    </div>
-                                    <div class="field-wrap">
-                                        <input type="text" placeholder="Prénom "/>
-                                    </div>
-                                    <div class="field-wrap">
-                                        <input type="text" placeholder="Tél "/>
+                                    <div class="col-lg-2 col-md-2 col-sm-12">
+                                        <label>Unité</label>
+                                        <select class="form-control">
+                                            <option>Kg</option>
+                                            <option>Tonnes</option>
+                                            <option>Litres</option>
+                                        </select>
                                     </div>
                                 </div>
-                                <input type="text" placeholder="Email "/>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <label>Autres produits </label>
+                                        <input type="text" placeholder="Autres produits "/>
+                                    </div>
+                                </div>
+                                <hr style="border: 2px solid darkgray; width: 100%"/>
 
-                                <input (click)="next()" type="button" name="next" class="next action-button-next"
-                                       value="Suivant"/>
+                                <fieldset>Personne de contact
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-6 col-sm-12">
+                                            <label>Nom</label>
+                                            <input type="text" placeholder="Nom "/>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-12">
+                                            <label>Prénom</label>
+                                            <input type="text" placeholder="Prénom "/>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-6 col-sm-12">
+                                            <label>Tél</label>
+                                            <input type="text" placeholder="Tél "/>
+                                        </div>
+
+                                        <div class="col-lg-6 col-md-6 col-sm-12">
+                                            <label>Email</label>
+                                            <input type="text" placeholder="Email "/>
+                                        </div>
+                                    </div>
+                                </fieldset>
                             </div>
+                            <input (click)="next()" type="button" name="next" class="next action-button-next"
+                                   value="Suivant"/>
                         </fieldset>
                     </form>
 
@@ -1049,7 +1118,9 @@
                                     <span class="accordion-toggle">5. TRANSMISSION DE l’ETIQUETTE DU PRODUIT</span>
                                     <div class="accordion-content">
                                         <div class="accordion-inner">
-                                            <a target="_blank" href="https://pampat.ma/fr/capacity/concours-marocain-des-produits-du-terroir/">Spécimen d’étiquette du produit</a>
+                                            <a target="_blank"
+                                               href="https://pampat.ma/fr/capacity/concours-marocain-des-produits-du-terroir/">Spécimen
+                                                d’étiquette du produit</a>
                                         </div>
                                     </div>
                                 </div>

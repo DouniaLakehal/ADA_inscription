@@ -19,6 +19,9 @@ import {ProducteurService} from "./producteur/producteur/service/Producteur.serv
 import { InscriptionComponent } from './producteur/inscription/inscription/inscription.component';
 import { ProgressComponent } from './producteur/progress/progress.component';
 import { RecapComponent } from './producteur/recap/recap.component';
+import {NgxAutocompleteModule} from "ngx-angular-autocomplete";
+import { AlertComponent } from './producteur/alert/alert.component';
+import { AccueilComponent } from './producteur/accueil/accueil.component';
 
 
 @NgModule({
@@ -30,6 +33,7 @@ import { RecapComponent } from './producteur/recap/recap.component';
         RouterModule,
         JwBootstrapSwitchNg2Module,
         ReactiveFormsModule,
+        NgxAutocompleteModule,
     ],
     declarations: [
         ComponentsComponent,
@@ -43,7 +47,9 @@ import { RecapComponent } from './producteur/recap/recap.component';
         NgbdModalContent,
         InscriptionComponent,
         ProgressComponent,
-        RecapComponent
+        RecapComponent,
+        AlertComponent,
+        AccueilComponent
     ],
     providers: [ProducteurService],
     exports:[ ComponentsComponent, ProducteurComponent ]
