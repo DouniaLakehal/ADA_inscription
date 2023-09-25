@@ -1,0 +1,27 @@
+{
+"posts": [{
+"id": 1,
+"title": "CPAM",
+"releaseDate": "June 14th, 2012"
+}, {
+"id": 2,
+"title": "RSI",
+"releaseDate": "September 14, 2016"
+}, {
+"id": 3,
+"title": "Twins group",
+"releaseDate": "March 23, 2017"
+}, {
+"id": 4,
+"title": "CGU",
+"releaseDate": "November 1, 2017"
+}, {
+"id": 5,
+"title": "SENCRL",
+"releaseDate": "May 4th, 2018"
+}, {
+"id": 6,
+"title": "XLS CONSULTING",
+"releaseDate": "October 18, 2018"
+}]
+}
