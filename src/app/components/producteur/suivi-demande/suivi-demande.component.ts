@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'suivi-demande',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SuiviDemandeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router : Router) { }
 
   ngOnInit(): void {
   }
 
+  gotoaccueil(){
+    this.router.navigate(['/accueil'])
+  }
 }
