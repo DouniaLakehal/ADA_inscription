@@ -14,6 +14,7 @@ import {RecapComponent} from "./components/producteur/recap/recap.component";
 import {AccueilComponent} from "./components/producteur/accueil/accueil.component";
 import {SuiviDemandeComponent} from "./components/producteur/suivi-demande/suivi-demande.component";
 import {ResultatComponent} from "./components/producteur/resultat/resultat.component";
+import {AttestattionsComponent} from "./components/producteur/attestattions/attestattions.component";
 
 const routes: Routes = [
     {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -27,7 +28,8 @@ const routes: Routes = [
     {path: 'recap', component: RecapComponent},
     {path: 'accueil', component: AccueilComponent},
     {path: 'suivi-demande', component: SuiviDemandeComponent},
-    {path: 'resultat', component: ResultatComponent}
+    {path: 'resultat', component: ResultatComponent},
+    {path: 'attestation', component: AttestattionsComponent},
 ];
 
 @NgModule({

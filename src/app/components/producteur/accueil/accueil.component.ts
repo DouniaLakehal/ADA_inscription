@@ -23,6 +23,10 @@ export class AccueilComponent implements OnInit {
     this.router.navigate(['/resultat']);
   }
 
+  gotoattestation(){
+    this.router.navigate(['/attestation']);
+  }
+
   open() {
     const modalRef = this.modalService.open(NgbdModalContent);
     modalRef.componentInstance.name = 'World';
