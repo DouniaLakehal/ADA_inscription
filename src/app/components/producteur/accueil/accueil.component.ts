@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
+import {NgbdModalContent} from "../../modal/modal.component";
+import {NgbActiveModal, NgbModal} from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
   selector: 'accueil',
@@ -8,13 +10,22 @@ import {Router} from "@angular/router";
 })
 export class AccueilComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private modalService: NgbModal) { }
 
   ngOnInit(): void {
   }
 
   gotoInscription(){
     this.router.navigate(['/inscriptions']);
+  }
+
+  gotoresultat(){
+    this.router.navigate(['/resultat']);
+  }
+
+  open() {
+    const modalRef = this.modalService.open(NgbdModalContent);
+    modalRef.componentInstance.name = 'World';
   }
 
 }

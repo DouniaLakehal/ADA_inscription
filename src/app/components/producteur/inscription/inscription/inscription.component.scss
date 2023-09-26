@@ -27,6 +27,19 @@ label .checkbox1{
   margin-top: 10%;
 }
 
+.feather {
+  display: inline-block;
+  position: relative;
+  top: -0.1rem;
+  width: 1em;
+  height: 1em;
+  vertical-align: middle;
+
+  .dropdown-item & {
+    margin-right: .25rem;
+  }
+}
+
 header{
   position: sticky;
   top: 0;
@@ -614,13 +627,13 @@ If you like this solution, you might also want to check out the 1.0 version:
 $table-breakpoint: 480px;
 $table-background-color: #FFF;
 $table-text-color: #024457;
-$table-outer-border: 1px solid #167F92;
+$table-outer-border: 1px solid #d2a679;
 $table-cell-border: 1px solid #D9E4E6;
 
 // Extra options for table style (parse these arguments when including your mixin)
 $table-border-radius: 10px;
 $table-highlight-color: #EAF3F3;
-$table-header-background-color: #167F92;
+$table-header-background-color: #d2a679;
 $table-header-text-color: #FFF;
 $table-header-border: 1px solid #FFF;
 
@@ -641,7 +654,7 @@ $table-header-border: 1px solid #FFF;
   .responstable {
     margin: 1em 0;
     width: 100%;
-    overflow: hidden;
+   // overflow: hidden;
     background: $background-color;
     color: $text-color;
     border-radius: $border-radius;
@@ -1037,4 +1050,40 @@ $rgb-204: rgb(204, 204, 204);
   opacity: 0.5;
   pointer-events: none;
   cursor: default;
+}
+
+.dropdown-menu{
+  position: absolute;
+  transform: translate3d(-14px, 40px, 0px) !important;
+  top: 0px !important;
+  font-size: 10px!important;
+  min-width: 7rem!important;
+  margin-top: 0!important;
+  border-radius: 0px !important;
+  background-color: #f9f2ec !important;
+  border-color: #caac90 !important;
+}
+
+.dropdown-menu :hover{
+  background-color: #caac90 !important;
+  border-radius: 0px !important;
+}
+
+.dropdown .dropdown-menu .dropdown-item :hover{
+  background-color: #caac90 !important;
+  border-radius: 0px !important;
+}
+
+.btn2 :hover{
+  background-color: #caac90 !important;
+  border-radius: 0px !important;
+}
+
+.btn2{
+  background-color: #a47e65;
+  color: white;
+}
+
+.dropdown .dropdown-menu .dropdown-item {
+  font-size: 12px !important;
 }

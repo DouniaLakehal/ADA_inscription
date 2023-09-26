@@ -22,6 +22,9 @@ import { RecapComponent } from './producteur/recap/recap.component';
 import {NgxAutocompleteModule} from "ngx-angular-autocomplete";
 import { AlertComponent } from './producteur/alert/alert.component';
 import { AccueilComponent } from './producteur/accueil/accueil.component';
+import { SuiviDemandeComponent } from './producteur/suivi-demande/suivi-demande.component';
+import { ResultatComponent } from './producteur/resultat/resultat.component';
+import { AttestattionsComponent } from './producteur/attestattions/attestattions.component';
 
 
 @NgModule({
@@ -49,7 +52,10 @@ import { AccueilComponent } from './producteur/accueil/accueil.component';
         ProgressComponent,
         RecapComponent,
         AlertComponent,
-        AccueilComponent
+        AccueilComponent,
+        SuiviDemandeComponent,
+        ResultatComponent,
+        AttestattionsComponent
     ],
     providers: [ProducteurService],
     exports:[ ComponentsComponent, ProducteurComponent ]

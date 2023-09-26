@@ -1,12 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import {ChangeDetectorRef, Component, Input, OnInit, ViewChild} from '@angular/core';
 import {Router} from "@angular/router";
-import {FormArray, FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {FormArray, FormBuilder, FormGroup, NgForm, Validators} from "@angular/forms";
 import {NavbarService} from "../../../../shared/navbar/navbar.service";
+import {ViewportScroller} from "@angular/common";
+import {debounceTime, fromEvent, map, Subscription, tap} from 'rxjs';
+import {VERSION} from "@angular/cdk";
 
 @Component({
-  selector: 'inscription',
-  templateUrl: './inscription.component.html',
-  styleUrls: ['./inscription.component.scss']
+    selector: 'inscription',
+    templateUrl: './inscription.component.html',
+    styleUrls: ['./inscription.component.scss']
 })
 export class InscriptionComponent implements OnInit {
 
@@ -29,28 +32,76 @@ export class InscriptionComponent implements OnInit {
     step = 1;
     files: any[] = [];
 
-    table :boolean;
-    form :boolean;
+    table: boolean;
+    form: boolean;
+
+    transactionValue = null;
+    MAX_TRANSACTION_VALUE : number;
 
     constructor(private router: Router, private nav: NavbarService) {
         this.form = false;
         this.table = true;
     }
+
     ngOnInit() {
-        this.nav.show();
+       // this.nav.show();
         this.table = true;
-        this.form = false
+        this.form = false;
+    }
+
+    checkTransactionValues(): void {
+        if (parseInt(this.transactionValue) > this.MAX_TRANSACTION_VALUE) {
+            this.transactionValue = '';
+        }
+    }
+
+
+    @ViewChild('myform') form1: NgForm;
+    data = null;
+    editMode = false;
+    editIndex;
+
+    addData(form) {
+        var val = form.controls;
+        const newData = {
+            composant: val.composant1.value,
+            matiere: val.matiere1.value,
+            pourcent: val.pourcent1.value,
+            fournisseur: val.fournisseur1.value,
+            lieu: val.lieu1.value
+        }
+        if (this.editMode) {
+            this.data[this.editIndex] = newData;
+        } else {
+            this.data.push(newData);
+        }
+        this.form1.reset();
+    }
+
+    onDel(index) {
+        this.data.splice(index, 1);
+    }
+
+    onEdit(index) {
+        this.editMode = true;
+        this.editIndex = index;
+        this.form1.setValue({
+            composant1: this.data[index].composant,
+            matiere1: this.data[index].matiere,
+            pourcent1: this.data[index].pourcent,
+            fournisseur1: this.data[index].fournisseur,
+            lieu1: this.data[index].lieu,
+        });
     }
 
     showDiv = {
-        previous : false
+        previous: false
     }
 
-    visible:boolean = false;
-    ReadMore:boolean = false;
+    visible: boolean = false;
+    ReadMore: boolean = false;
 
-    onclick()
-    {
+    onclick() {
         this.ReadMore = !this.ReadMore; //not equal to condition
         this.visible = !this.visible
     }
@@ -58,24 +109,31 @@ export class InscriptionComponent implements OnInit {
     get personal() {
         return this.personalDetails.controls;
     }
+
     get produit() {
         return this.produitDetails.controls;
     }
-    get degustation(){
+
+    get degustation() {
         return this.degustationDetails.controls;
     }
-    get composition(){
+
+    get composition() {
         return this.compositionDetails.controls;
     }
-    get transmission(){
+
+    get transmission() {
         return this.transmissionDetails.controls;
     }
-    get production(){
+
+    get production() {
         return this.productionDetails.controls;
     }
-    get acceptation(){
+
+    get acceptation() {
         return this.acceptationDetails.controls;
     }
+
     get recap() {
         return this.recapDetails.controls;
     }
@@ -91,38 +149,43 @@ export class InscriptionComponent implements OnInit {
     }
 
     next() {
+
+        document.getElementById("msform").scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+            inline: "nearest"
+        });
+
         if (this.step == 1) {
             this.personal_step = true;
             this.step++;
-        }
-
-        else if (this.step == 2) {
+        } else if (this.step == 2) {
             this.produit_step = true;
             this.step++;
-        }
-        else if (this.step == 3) {
+        } else if (this.step == 3) {
             this.degustation_step = true;
             this.step++;
-        }
-        else if (this.step == 4) {
+        } else if (this.step == 4) {
             this.composition_step = true;
             this.step++;
-        }
-        else if (this.step == 5) {
+        } else if (this.step == 5) {
             this.transmission_step = true;
             this.step++;
-        }
-        else if (this.step == 6) {
+        } else if (this.step == 6) {
             this.production_step = true;
             this.step++;
-        }
-        else if (this.step == 7) {
+        } else if (this.step == 7) {
             this.acceptation_step = true;
             this.step++;
         }
     }
 
     previous() {
+        document.getElementById("msform").scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+            inline: "nearest"
+        });
         this.step--;
         if (this.step == 1) {
             this.personal_step = false;
@@ -150,7 +213,7 @@ export class InscriptionComponent implements OnInit {
     submit() {
         if (this.step == 8) {
             this.recap_step = true;
-            this.router.navigate(['/list_producteurs']);
+            this.router.navigate(['/accueil']);
         }
     }
 

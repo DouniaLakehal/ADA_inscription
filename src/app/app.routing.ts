@@ -12,6 +12,8 @@ import {ProducteurComponent} from "./components/producteur/producteur/producteur
 import {InscriptionComponent} from "./components/producteur/inscription/inscription/inscription.component";
 import {RecapComponent} from "./components/producteur/recap/recap.component";
 import {AccueilComponent} from "./components/producteur/accueil/accueil.component";
+import {SuiviDemandeComponent} from "./components/producteur/suivi-demande/suivi-demande.component";
+import {ResultatComponent} from "./components/producteur/resultat/resultat.component";
 
 const routes: Routes = [
     {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -23,7 +25,9 @@ const routes: Routes = [
     {path: 'list_producteurs', component: ProducteurComponent},
     {path: 'inscriptions', component: InscriptionComponent},
     {path: 'recap', component: RecapComponent},
-    {path: 'accueil', component: AccueilComponent}
+    {path: 'accueil', component: AccueilComponent},
+    {path: 'suivi-demande', component: SuiviDemandeComponent},
+    {path: 'resultat', component: ResultatComponent}
 ];
 
 @NgModule({
@@ -31,7 +35,8 @@ const routes: Routes = [
         CommonModule,
         BrowserModule,
         RouterModule.forRoot(routes, {
-            useHash: true
+            useHash: true,
+            scrollPositionRestoration: 'enabled'
         })
     ],
     exports: [],

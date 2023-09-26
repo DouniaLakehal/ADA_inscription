@@ -3,8 +3,8 @@
         <div class="filter"></div>
         <div class="content-center">
             <section class="container-boxes row">
-                <div class="col-md-8 col-md-offset-3">
-                    <form [formGroup]="personalDetails" id="msform">
+                <div class="col-md-8 col-md-offset-3" id="targetGreen">
+                    <form id="msform">
                         <fieldset *ngIf="step == 1">
                             <header>
                                 <div class="header-navbar">
@@ -82,14 +82,20 @@
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-12">
                                         <label>Nombre d’adhérents</label>
-                                        <input type="number" placeholder="Nombre d’adhérents "/>
+                                        <input class="form-control" [(ngModel)]="MAX_TRANSACTION_VALUE"
+                                               id="perTxnLimit2" name="perTxnLimit2"
+                                               (focusout)=" checkTransactionValues()" type="number"
+                                               placeholder="Nombre d’adhérents ">
                                     </div>
                                     <div class="col-lg-2 col-md-2 col-sm-12">
                                         <label>/ femmes</label>
-                                        <input type="number" placeholder="femmes "/>
+                                        <input class="form-control"
+                                               [(ngModel)]="transactionValue"
+                                               (focusout)=" checkTransactionValues()" id="transactionValue" type="number"
+                                               placeholder="femmes " name="perTxnLimit">
                                     </div>
-                                </div>
 
+                                </div>
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6 col-sm-12">
                                         <label>Tél</label>
@@ -163,6 +169,10 @@
                             </div>
                             <input (click)="next()" type="button" name="next" class="next action-button-next"
                                    value="Suivant"/>
+
+                            <!--<button (click)="goDown1()">Scroll to Red DIV</button>
+                            <button (click)="goDown2()">Scroll to Green DIV</button>
+                            <button (click)="goDown3()">Scroll to Blue DIV</button>-->
                         </fieldset>
                     </form>
 
@@ -491,7 +501,8 @@
                                 </div>
                             </header>
                             <div id="top" class="page-wrap" style="margin-top: 7%;">
-                                <label>Votre conseil pour la préparation du produit lors de la dégustation
+                                <label class="text-left">Votre conseil pour la préparation du produit lors de la
+                                    dégustation
                                     (température
                                     de consommation, durée/ température de cuisson……)</label>
                                 <textarea type="text" rows="5"></textarea>
@@ -519,35 +530,42 @@
                                     </h2>
                                 </div>
                             </header>
-                            <div id="top" *ngIf="!showDiv.previous" class="page-wrap" style="margin-top: 7%;">
-                                <div class="top-row">
-                                    <div class="field-wrap">
-                                        <input type="text" placeholder="Composant"/>
+                            <div id="top" class="page-wrap" style="margin-top: 7%;">
+                                <form #myform="ngForm">
+                                    <div class="row text-left">
+                                        <div class="col-lg-6 col-md-6 col-sm-12">
+                                            <label for="composant-name">Composants</label>
+                                            <input name="composant1" ngModel
+                                                   id="composant-name">
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-12">
+                                            <label for="matiere-text">Matière
+                                                première</label>
+                                            <input name="matiere1" ngModel
+                                                   id="matiere-text"/>
+                                        </div>
+                                        <div class="col-lg-2 col-md-2 col-sm-12">
+                                            <label for="pourcent-text">%</label>
+                                            <input name="pourcent1" ngModel type="number"
+                                                   id="pourcent-text"/>
+                                        </div>
                                     </div>
 
-                                    <div class="field-wrap">
-                                        <input type="text" placeholder="Matière première"/>
+                                    <div class="row text-left">
+                                        <div class="col-lg-6 col-md-6 col-sm-12">
+                                            <label for="fournisseur-name">Fournisseur</label>
+                                            <input type="text" name="fournisseur1" ngModel
+                                                   id="fournisseur-name">
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-12">
+                                            <label for="lieu-text">Lieu de production</label>
+                                            <input name="lieu1" ngModel
+                                                   id="lieu-text"/>
+                                        </div>
                                     </div>
-                                </div>
-
-
-                                <div class="top-row">
-                                    <div class="field-wrap">
-                                        <input type="text" placeholder="%"/>
-                                    </div>
-                                    <div class="field-wrap">
-                                        <input type="text" placeholder="Fournisseur"/>
-                                    </div>
-                                </div>
-
-                                <div class="top-row">
-                                    <div class="field-wrap">
-                                        <input type="text" placeholder="Lieu de production"/>
-                                    </div>
-                                </div>
-                                <input (click)="showDiv.previous = !showDiv.previous" type="button" name="ajouter"
-                                       class="add action-button"
-                                       value="Enregistrer"/>
+                                </form>
+                                <button type="submit" (click)="addData(myform)" class="submit action-button">Enregistrer
+                                </button>
                             </div>
                             <div id="top" class="page-wrap" style="margin-top: 7%;">
                                 <table class="responstable">
@@ -558,42 +576,44 @@
                                         <th scope="col">%</th>
                                         <th scope="col">Fournisseur</th>
                                         <th scope="col">Lieu de production</th>
+                                        <th scope="col">Action</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr>
-                                        <td data-label="Account">1</td>
-                                        <td data-label="Due Date"></td>
-                                        <td data-label="Amount"></td>
-                                        <td data-label="Period"></td>
-                                        <td data-label="Period"></td>
-                                    </tr>
-                                    <tr>
-                                        <td scope="row" data-label="Account">2</td>
-                                        <td data-label="Due Date"></td>
-                                        <td data-label="Amount"></td>
-                                        <td data-label="Period"></td>
-                                        <td data-label="Period"></td>
-                                    </tr>
-                                    <tr>
-                                        <td scope="row" data-label="Account">3</td>
-                                        <td data-label="Due Date"></td>
-                                        <td data-label="Amount"></td>
-                                        <td data-label="Period"></td>
-                                        <td data-label="Period"></td>
-                                    </tr>
-                                    <tr>
-                                        <td scope="row" data-label="Acount"></td>
-                                        <td data-label="Due Date">Total</td>
-                                        <td data-label="Amount">100%</td>
-                                        <td data-label="Period"></td>
-                                        <td data-label="Period"></td>
+                                    <tr *ngFor="let msg of data;let i=index;">
+                                        <td>{{ msg.composant }}</td>
+                                        <td>{{ msg.matiere }}</td>
+                                        <td>{{ msg.pourcent }}</td>
+                                        <td>{{ msg.fournisseur }}</td>
+                                        <td>{{ msg.lieu }}</td>
+                                        <!--<td>
+                                            <span style="color:green;cursor:pointer" (click)="onEdit(i)"> <u> EDIT.</u> </span>&nbsp;
+                                            <span style="color:red;cursor:pointer"
+                                                  (click)="onDel(i)"> <u> DEL.</u> </span>
+                                        </td>-->
+                                        <td>
+                                            <div class="dropdown">
+                                                <button id="dropdown-menu-button" class="btn btn2 dropdown-toggle"
+                                                        type="button" data-toggle="dropdown" aria-haspopup="true"
+                                                        aria-expanded="false">
+                                                    <span>...</span>
+                                                </button>
+                                                <div class="dropdown-menu dropdown-menu-right"
+                                                     aria-labelledby="dropdown-menu-button">
+                                                    <a class="dropdown-item" type="submit" (click)="onEdit(i)">
+                                                        <i class="fa fa-edit" style="color: #2ba9cd"></i>
+                                                        Modifier
+                                                    </a>
+                                                    <a class="dropdown-item" type="submit" (click)="onDel(i)">
+                                                        <i class="fa fa-trash" style="color: #972d29"></i>
+                                                        Supprimer
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </td>
                                     </tr>
                                     </tbody>
                                 </table>
-                                <input (click)="showDiv.previous = !showDiv.previous" type="button" name="ajouter"
-                                       class="add action-button"
-                                       value="Ajouter"/>
                                 <input (click)="previous()" type="button" name="previous"
                                        class="previous action-button-previous"
                                        value="Précedent"/>
@@ -634,7 +654,7 @@
                                         </g>
                                     </svg>
 
-                                    <h3>Séléctionner</h3>
+                                    <p>spécimen d’étiquette du produit</p>
                                 </div>
                                 <div class="files-list">
                                     <div class="single-file" *ngFor="let file of files; let i = index">

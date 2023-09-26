@@ -17,7 +17,7 @@ import {SimpleModalModule} from 'ngx-simple-modal';
     declarations: [
         AppComponent,
         NavbarComponent,
-        FooterComponent,
+        FooterComponent
     ],
     imports: [
         BrowserModule,
