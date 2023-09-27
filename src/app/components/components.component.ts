@@ -1,5 +1,5 @@
-import { Component, OnInit, Renderer2 } from '@angular/core';
-import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
+import {Component, ElementRef, OnInit, Renderer2, ViewChild} from '@angular/core';
+import {NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
 import {Router} from "@angular/router";
 import {NavbarService} from "../shared/navbar/navbar.service";
 import {SimpleModalService} from "ngx-simple-modal";
@@ -9,9 +9,9 @@ import {AlertComponent} from "./producteur/alert/alert.component";
     selector: 'app-components',
     templateUrl: './components.component.html',
     styles: [`
-    ngb-progressbar {
-        margin-top: 5rem;
-    }
+        ngb-progressbar {
+            margin-top: 5rem;
+        }
     `]
 })
 
@@ -28,10 +28,10 @@ export class ComponentsComponent implements OnInit {
     }
 
     showDiv = {
-        previous : false
+        previous: false
     }
 
-    setInput(){
+    setInput() {
         console.log('the selected input is:');
     }
 
@@ -40,11 +40,20 @@ export class ComponentsComponent implements OnInit {
     focus;
     focus1;
     focus2;
-    date: {year: number, month: number};
+    date: { year: number, month: number };
     model: NgbDateStruct;
 
-    constructor( private renderer : Renderer2, private router: Router, public nav: NavbarService,
-                 private SimpleModalService: SimpleModalService) {}
+    pinkboxStyle: { [key: string]: string } = { 'transform': 'translateX(80%)' };
+    showSignUp: boolean = true;
+
+    togglePinkbox() {
+        this.pinkboxStyle = this.showSignUp ? { 'transform': 'translateX(0%)' } : { 'transform': 'translateX(80%)' };
+        this.showSignUp = !this.showSignUp;
+    }
+
+    constructor(private renderer: Renderer2, private router: Router, public nav: NavbarService,
+                private SimpleModalService: SimpleModalService) {
+    }
 
 
     showAlert() {
@@ -56,7 +65,7 @@ export class ComponentsComponent implements OnInit {
         return d.getDay() === 0 || d.getDay() === 6;
     }
 
-    isDisabled(date: NgbDateStruct, current: {month: number}) {
+    isDisabled(date: NgbDateStruct, current: { month: number }) {
         return date.month !== current.month;
     }
 
@@ -65,20 +74,21 @@ export class ComponentsComponent implements OnInit {
         let input_group_focus = document.getElementsByClassName('form-control');
         let input_group = document.getElementsByClassName('input-group');
         for (let i = 0; i < input_group.length; i++) {
-            input_group[i].children[0].addEventListener('focus', function (){
+            input_group[i].children[0].addEventListener('focus', function () {
                 input_group[i].classList.add('input-group-focus');
             });
-            input_group[i].children[0].addEventListener('blur', function (){
+            input_group[i].children[0].addEventListener('blur', function () {
                 input_group[i].classList.remove('input-group-focus');
             });
         }
     }
-    gotoHome(){
+
+    gotoHome() {
         this.router.navigate(['/accueil']);  // define your component where you want to go
     }
 
     title = "Ngx Angular AutoComplete";
-    selected_employee: any ;
+    selected_employee: any;
     public employees = [
         {
             id: 1,
