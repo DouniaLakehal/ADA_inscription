@@ -1067,7 +1067,7 @@ input:focus {
   outline: none;
 }
 
-.form-control{
+.position-relative .form-control{
   background-color:antiquewhite !important;
   border: none !important;
   margin: 0 !important;
@@ -1135,7 +1135,7 @@ input:focus ~ label, input:valid ~ label {
 }
 
 .bar:before {
-  left: 25%;
+  left: 20%;
 }
 
 .bar:after {
@@ -1226,7 +1226,7 @@ input[type=checkbox] {
 }
 
 /* div box styling */
-.container {
+.containerss {
   margin: auto;
   width: 80%;
   height: 550px;
@@ -1317,14 +1317,14 @@ input[type=checkbox] {
   font-size: 10px;
 }
 
-p {
+.ppp {
   font-size: .7em;
   letter-spacing: 2px;
   color: $gray;
   text-align: center;
 }
 
-span {
+.span1 {
   color: #66512c;
 }
 
