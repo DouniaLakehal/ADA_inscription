@@ -1,16 +1,16 @@
 /*form styles*/
 
-label .checkbox1{
+label .checkbox1 {
   display: block;
 }
 
-.titles{
+.titles {
   color: white;
   text-align: center;
   z-index: 1;
 }
 
-.titles h1{
+.titles h1 {
   font-family: Pacifico;
   font-size: 5rem;
   margin-bottom: 0;
@@ -18,12 +18,12 @@ label .checkbox1{
 
 }
 
-.titles p{
+.titles p {
   letter-spacing: 3px;
   text-shadow: 1px 1px 0 black;
 }
 
-.content-center{
+.content-center {
   margin-top: 10%;
 }
 
@@ -40,7 +40,7 @@ label .checkbox1{
   }
 }
 
-header{
+header {
   position: sticky;
   top: 0;
   margin-top: -2%;
@@ -51,14 +51,14 @@ header{
   background: white;
 }
 
-.container-boxes{
+.container-boxes {
   margin: 0 auto;
   padding: 0;
-  display:flex;
+  display: flex;
   justify-content: space-around;
-  height:500px;
-  min-height:500px;
-  overflow-y:auto
+  height: 500px;
+  min-height: 500px;
+  overflow-y: auto
 }
 
 #msform {
@@ -76,7 +76,7 @@ header{
   box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
   padding: 20px 30px;
   box-sizing: border-box;
- // width: 80%;
+  // width: 80%;
   margin: auto;
 
   /*stacking fieldsets above each other*/
@@ -150,7 +150,7 @@ header{
 }
 
 #msform .action-button {
-  width: 100px;
+  width: 150px;
   background: #0D9814;
   font-weight: bold;
   color: white;
@@ -166,7 +166,7 @@ header{
   box-shadow: 0 0 0 2px white, 0 0 0 3px #0D9814;
 }
 
-.page-header{
+.page-header {
   display: block !important;
 }
 
@@ -289,6 +289,7 @@ fieldset {
     width: 100%;
   }
 }
+
 @-o-keyframes slidein {
   from {
     margin-left: 100%;
@@ -300,6 +301,7 @@ fieldset {
     width: 100%;
   }
 }
+
 @keyframes slidein {
   from {
     margin-left: 100%;
@@ -313,25 +315,56 @@ fieldset {
 }
 
 
-.load{
+.load {
   position: absolute;
   left: 4%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   width: 50px;
   height: 50px;
 }
-.load hr{border:0;margin:0;width:40%;height:40%;position:absolute;border-radius:50%;animation:spin 2s ease infinite}
 
-.load :first-child{background:#19A68C;animation-delay:-1.5s}
-.load :nth-child(2){background:#F63D3A;animation-delay:-1s}
-.load :nth-child(3){background:#FDA543;animation-delay:-0.5s}
-.load :last-child{background:#193B48}
+.load hr {
+  border: 0;
+  margin: 0;
+  width: 40%;
+  height: 40%;
+  position: absolute;
+  border-radius: 50%;
+  animation: spin 2s ease infinite
+}
 
-@keyframes spin{
-  0%,100%{transform:translate(0)}
-  25%{transform:translate(160%)}
-  50%{transform:translate(160%, 160%)}
-  75%{transform:translate(0, 160%)}
+.load :first-child {
+  background: #19A68C;
+  animation-delay: -1.5s
+}
+
+.load :nth-child(2) {
+  background: #F63D3A;
+  animation-delay: -1s
+}
+
+.load :nth-child(3) {
+  background: #FDA543;
+  animation-delay: -0.5s
+}
+
+.load :last-child {
+  background: #193B48
+}
+
+@keyframes spin {
+  0%, 100% {
+    transform: translate(0)
+  }
+  25% {
+    transform: translate(160%)
+  }
+  50% {
+    transform: translate(160%, 160%)
+  }
+  75% {
+    transform: translate(0, 160%)
+  }
 }
 
 .top-row {
@@ -342,11 +375,12 @@ fieldset {
   }
 
   > div {
-    float:left;
-    width:48%;
-    margin-right:4%;
+    float: left;
+    width: 48%;
+    margin-right: 4%;
+
     &:last-child {
-      margin:0;
+      margin: 0;
     }
   }
 }
@@ -362,8 +396,9 @@ fieldset {
     float: left;
     width: 32%;
     margin-right: 2%;
+
     &:last-child {
-      margin:0;
+      margin: 0;
     }
   }
 }
@@ -372,15 +407,18 @@ fieldset {
   margin: auto;
   width: 550px;
 }
+
 .accordion input {
   display: none;
 }
+
 .box {
   position: relative;
   background: white;
   height: 64px;
   transition: all .15s ease-in-out;
 }
+
 .box::before {
   content: '';
   position: absolute;
@@ -390,14 +428,16 @@ fieldset {
   left: 0;
   right: 0;
   pointer-events: none;
-  box-shadow: 0 -1px 0 #e5e5e5,0 0 2px rgba(0,0,0,.12),0 2px 4px rgba(0,0,0,.24);
+  box-shadow: 0 -1px 0 #e5e5e5, 0 0 2px rgba(0, 0, 0, .12), 0 2px 4px rgba(0, 0, 0, .24);
 }
+
 header.box {
   background: #00BCD4;
   z-index: 100;
   cursor: initial;
-  box-shadow: 0 -1px 0 #e5e5e5,0 0 2px -2px rgba(0,0,0,.12),0 2px 4px -4px rgba(0,0,0,.24);
+  box-shadow: 0 -1px 0 #e5e5e5, 0 0 2px -2px rgba(0, 0, 0, .12), 0 2px 4px -4px rgba(0, 0, 0, .24);
 }
+
 header .box-title {
   margin: 0;
   font-weight: normal;
@@ -405,6 +445,7 @@ header .box-title {
   color: white;
   cursor: initial;
 }
+
 .box-title {
   width: calc(100% - 40px);
   height: 64px;
@@ -412,18 +453,25 @@ header .box-title {
   padding: 0 20px;
   display: inline-block;
   cursor: pointer;
-  -webkit-touch-callout: none;-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   color: black;
   font-weight: 500;
   font-size: 16px;
 }
+
 .box-content {
   width: calc(100% - 40px);
   padding: 30px 20px;
   font-size: 11pt;
-  color: rgba(0,0,0,.54);
+  color: rgba(0, 0, 0, .54);
   display: none;
 }
+
 .box-close {
   position: absolute;
   height: 64px;
@@ -433,22 +481,27 @@ header .box-title {
   cursor: pointer;
   display: none;
 }
+
 input:checked + .box {
   height: auto;
   margin: 16px 0;
-  box-shadow: 0 0 6px rgba(0,0,0,.16),0 6px 12px rgba(0,0,0,.32);
+  box-shadow: 0 0 6px rgba(0, 0, 0, .16), 0 6px 12px rgba(0, 0, 0, .32);
 }
+
 input:checked + .box .box-title {
-  border-bottom: 1px solid rgba(0,0,0,.18);
+  border-bottom: 1px solid rgba(0, 0, 0, .18);
 }
+
 input:checked + .box .box-content,
 input:checked + .box .box-close {
   display: inline-block;
 }
+
 .arrows section .box-title {
   padding-left: 44px;
   width: calc(100% - 64px);
 }
+
 .arrows section .box-title:before {
   position: absolute;
   display: block;
@@ -459,49 +512,61 @@ input:checked + .box .box-close {
   transition: transform .15s ease-in-out;
   color: black;
 }
+
 input:checked + section.box .box-title:before {
   transform: rotate(90deg);
 }
 
 
-
 label.btn span {
-  font-size: 12px ;
+  font-size: 12px;
 }
 
-label input[type="radio"] ~ i.fa.fa-circle-o{
-  color: #c8c8c8;    display: inline;
+label input[type="radio"] ~ i.fa.fa-circle-o {
+  color: #c8c8c8;
+  display: inline;
 }
-label input[type="radio"] ~ i.fa.fa-dot-circle-o{
+
+label input[type="radio"] ~ i.fa.fa-dot-circle-o {
   display: none;
 }
-label input[type="radio"]:checked ~ i.fa.fa-circle-o{
+
+label input[type="radio"]:checked ~ i.fa.fa-circle-o {
   display: none;
 }
-label input[type="radio"]:checked ~ i.fa.fa-dot-circle-o{
-  color: #19A68C;    display: inline;
+
+label input[type="radio"]:checked ~ i.fa.fa-dot-circle-o {
+  color: #19A68C;
+  display: inline;
 }
+
 label:hover input[type="radio"] ~ i.fa {
   color: #19A68C;
 }
 
-label input[type="checkbox"] ~ i.fa.fa-square-o{
-  color: #c8c8c8;    display: inline;
+label input[type="checkbox"] ~ i.fa.fa-square-o {
+  color: #c8c8c8;
+  display: inline;
 }
-label input[type="checkbox"] ~ i.fa.fa-check-square-o{
+
+label input[type="checkbox"] ~ i.fa.fa-check-square-o {
   display: none;
 }
-label input[type="checkbox"]:checked ~ i.fa.fa-square-o{
+
+label input[type="checkbox"]:checked ~ i.fa.fa-square-o {
   display: none;
 }
-label input[type="checkbox"]:checked ~ i.fa.fa-check-square-o{
-  color: #19A68C;    display: inline;
+
+label input[type="checkbox"]:checked ~ i.fa.fa-check-square-o {
+  color: #19A68C;
+  display: inline;
 }
+
 label:hover input[type="checkbox"] ~ i.fa {
   color: #19A68C;
 }
 
-div[data-toggle="buttons"] label.active{
+div[data-toggle="buttons"] label.active {
   color: #19A68C;
 }
 
@@ -517,8 +582,7 @@ div[data-toggle="buttons"] label {
   vertical-align: top;
   cursor: pointer;
   background-color: white;
-  border: 0px solid
-  #c8c8c8;
+  border: 0px solid #c8c8c8;
   border-radius: 3px;
   color: #0b1011;
   -webkit-user-select: none;
@@ -538,16 +602,16 @@ div[data-toggle="buttons"] label:active, div[data-toggle="buttons"] label.active
 }
 
 
-.accordion1{
+.accordion1 {
   display: inline-block;
   text-align: left;
   margin: 1%;
   width: 100%;
 
-  &:hover{
+  &:hover {
 
     // max-height technique
-    .accordion-content{
+    .accordion-content {
       // If use the "height: auto", the effect not works. Is necessary some value for the CSS create a CSS animate, and we can use "max-height" with a great value for emulate this effect.
       max-height: 1000px;
     }
@@ -555,19 +619,39 @@ div[data-toggle="buttons"] label:active, div[data-toggle="buttons"] label.active
   }
 }
 
-input[type=checkbox] { display:none; } /* to hide the checkbox itself */
+input[type=checkbox] {
+  display: none;
+}
+
+/* to hide the checkbox itself */
 input[type=checkbox] + label:before {
   font-family: FontAwesome;
   display: inline-block;
 }
 
-input[type=checkbox] + label:before { content: "\f096"; } /* unchecked icon */
-input[type=checkbox] + label:before { letter-spacing: 10px; } /* space between checkbox and label */
+input[type=checkbox] + label:before {
+  content: "\f096";
+}
 
-input[type=checkbox]:checked + label:before { content: "\f046"; } /* checked icon */
-input[type=checkbox]:checked + label:before { letter-spacing: 5px; } /* allow space for check mark */
+/* unchecked icon */
+input[type=checkbox] + label:before {
+  letter-spacing: 10px;
+}
 
-.accordion-content{
+/* space between checkbox and label */
+
+input[type=checkbox]:checked + label:before {
+  content: "\f046";
+}
+
+/* checked icon */
+input[type=checkbox]:checked + label:before {
+  letter-spacing: 5px;
+}
+
+/* allow space for check mark */
+
+.accordion-content {
   -webkit-transition: max-height 1s;
   -moz-transition: max-height 1s;
   -ms-transition: max-height 1s;
@@ -579,11 +663,11 @@ input[type=checkbox]:checked + label:before { letter-spacing: 5px; } /* allow sp
   max-height: 0;
 }
 
-.accordion-inner{
+.accordion-inner {
   padding: 0 15px;
 }
 
-.accordion-toggle{
+.accordion-toggle {
   -webkit-transition: background .1s linear;
   -moz-transition: background .1s linear;
   -ms-transition: background .1s linear;
@@ -599,17 +683,18 @@ input[type=checkbox]:checked + label:before { letter-spacing: 5px; } /* allow sp
   text-align: center;
   text-decoration: none;
 
-  &:hover{
+  &:hover {
     background: darken(#7ac29a, 15%);
   }
 
 }
 
 
-span{
+span {
   margin-right: 30px;
 }
-input[type=radio]{
+
+input[type=radio] {
   margin: 10px -5px 0;
 }
 
@@ -654,7 +739,7 @@ $table-header-border: 1px solid #FFF;
   .responstable {
     margin: 1em 0;
     width: 100%;
-   // overflow: hidden;
+    // overflow: hidden;
     background: $background-color;
     color: $text-color;
     border-radius: $border-radius;
@@ -662,6 +747,7 @@ $table-header-border: 1px solid #FFF;
 
     tr {
       border: $cell-border;
+
       &:nth-child(odd) { // highlight the odd rows with a color
         background-color: $highlight-color;
       }
@@ -673,19 +759,33 @@ $table-header-border: 1px solid #FFF;
       background-color: $header-background-color;
       color: $header-text-color;
       padding: 1em;
+
       &:first-child { // show the first table header for mobile
         display: table-cell;
         text-align: center;
       }
+
       &:nth-child(2) { // show the second table header but replace the content with the data-th from the markup for mobile
         display: table-cell;
-        span {display:none;}
-        &:after {content:attr(data-th);}
+
+        span {
+          display: none;
+        }
+
+        &:after {
+          content: attr(data-th);
+        }
       }
+
       @media (min-width: $breakpoint) {
         &:nth-child(2) { // hide the data-th and show the normal header for tablet and desktop
-          span {display: block;}
-          &:after {display: none;}
+          span {
+            display: block;
+          }
+
+          &:after {
+            display: none;
+          }
         }
       }
     }
@@ -694,11 +794,13 @@ $table-header-border: 1px solid #FFF;
       display: block; // display the table data as one block for mobile
       word-wrap: break-word;
       max-width: 7em;
+
       &:first-child {
         display: table-cell; // display the first one as a table cell (radio button) for mobile
         text-align: center;
         border-right: $cell-border;
       }
+
       @media (min-width: $breakpoint) {
         border: $cell-border;
       }
@@ -737,14 +839,14 @@ $image-height: 250px;
 
   a {
     color: #333;
-    text-decoration:none;
+    text-decoration: none;
   }
 
   &:hover {
     .card-image {
       img {
         width: $image-size+10%;
-        filter:grayscale(0);
+        filter: grayscale(0);
       }
     }
   }
@@ -755,13 +857,13 @@ $image-height: 250px;
 
   height: 190px;
 
-  position:relative;
-  overflow:hidden;
+  position: relative;
+  overflow: hidden;
 
   img {
     width: $image-size;
 
-    position:absolute;
+    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -775,18 +877,15 @@ $image-height: 250px;
 }
 
 .card-body {
-  text-align:center;
+  text-align: center;
   padding: 1px 7px;
   box-sizing: border-box;
 }
 
 
-
-
-
 .card-date, .card-title {
-  text-align:center;
-  text-transform:uppercase;
+  text-align: center;
+  text-transform: uppercase;
   font-weight: bold;
 }
 
@@ -949,7 +1048,6 @@ $rgb-204: rgb(204, 204, 204);
 }
 
 
-
 .triangle {
   width: 0px;
   height: 0px;
@@ -1020,9 +1118,11 @@ $rgb-204: rgb(204, 204, 204);
     &.replay {
       background: url(https://www.gstatic.com/recaptcha/api2/refresh.png);
     }
+
     &.audio {
       background: url(https://www.gstatic.com/recaptcha/api2/audio.png);
     }
+
     &.info {
       background: url(https://www.gstatic.com/recaptcha/api2/info.png)
     }
@@ -1052,38 +1152,44 @@ $rgb-204: rgb(204, 204, 204);
   cursor: default;
 }
 
-.dropdown-menu{
+.dropdown-menu {
   position: absolute;
   transform: translate3d(-14px, 40px, 0px) !important;
   top: 0px !important;
-  font-size: 10px!important;
-  min-width: 7rem!important;
-  margin-top: 0!important;
+  font-size: 10px !important;
+  min-width: 7rem !important;
+  margin-top: 0 !important;
   border-radius: 0px !important;
   background-color: #f9f2ec !important;
   border-color: #caac90 !important;
 }
 
-.dropdown-menu :hover{
+.dropdown-menu :hover {
   background-color: #caac90 !important;
   border-radius: 0px !important;
 }
 
-.dropdown .dropdown-menu .dropdown-item :hover{
+.dropdown .dropdown-menu .dropdown-item :hover {
   background-color: #caac90 !important;
   border-radius: 0px !important;
 }
 
-.btn2 :hover{
+.btn2 :hover {
   background-color: #caac90 !important;
   border-radius: 0px !important;
 }
 
-.btn2{
+.btn2 {
   background-color: #a47e65;
   color: white;
 }
 
 .dropdown .dropdown-menu .dropdown-item {
   font-size: 12px !important;
+}
+
+label {
+  color: #000 !important;
+  font-size: 14px;
+  letter-spacing: 0px;
 }

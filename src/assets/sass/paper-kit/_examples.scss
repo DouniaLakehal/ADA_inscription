@@ -1053,7 +1053,7 @@ ul.ribbon-badge li.tail:after {
   margin-bottom: 30px;
 }
 
-input, select {
+.input10, .select10 {
   font-size: 15px;
   padding: 5px 10px 5px 10px;
   display: block;
@@ -1371,7 +1371,7 @@ button {
 
 /* form styling */
 
-form {
+.form {
   display: flex;
   align-items: center;
   flex-direction: column;
