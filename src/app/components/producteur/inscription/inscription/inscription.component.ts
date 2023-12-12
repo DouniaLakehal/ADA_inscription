@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component, Input, OnInit, ViewChild} from '@angular/core';
+import {ChangeDetectorRef, Component, ElementRef, Input, OnInit, Renderer2, ViewChild} from '@angular/core';
 import {Router} from "@angular/router";
 import {FormArray, FormBuilder, FormGroup, NgForm, Validators} from "@angular/forms";
 import {NavbarService} from "../../../../shared/navbar/navbar.service";
@@ -12,6 +12,8 @@ import {VERSION} from "@angular/cdk";
     styleUrls: ['./inscription.component.scss']
 })
 export class InscriptionComponent implements OnInit {
+
+    @ViewChild('tablist', { static: true }) tablistElement: ElementRef;
 
     personalDetails!: FormGroup;
     produitDetails!: FormGroup;
@@ -35,12 +37,25 @@ export class InscriptionComponent implements OnInit {
     table: boolean;
     form: boolean;
 
+    form1Visible: boolean;
+    form2Visible: boolean;
+    form3Visible: boolean;
+    form4Visible: boolean;
+    form5Visible: boolean;
+
     transactionValue = null;
     MAX_TRANSACTION_VALUE : number;
+    buttonText: string= 'DONNEES DE(S) PRODUIT(S) PARTICIPANT AU CONCOURS';
 
-    constructor(private router: Router, private nav: NavbarService) {
+    constructor(private router: Router) {
         this.form = false;
         this.table = true;
+
+        this.form1Visible = true;
+        this.form2Visible = false;
+        this.form3Visible = false;
+        this.form4Visible = false;
+        this.form5Visible = false;
     }
 
     ngOnInit() {
@@ -49,10 +64,86 @@ export class InscriptionComponent implements OnInit {
         this.form = false;
     }
 
+
+    updateText(){
+        this.buttonText= 'DONNEES DE(S) PRODUIT(S) PARTICIPANT AU CONCOURS';
+    }
+
+    toggleForms() {
+        this.form1Visible = !this.form1Visible;
+        this.form2Visible = !this.form2Visible;
+        this.buttonText = 'PREPARATION A LA DEGUSTATION';
+        document.getElementById("tab-2").scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+            inline: "nearest"
+        });
+    }
+
+    toggleForms0() {
+        document.getElementById("content").scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+            inline: "nearest"
+        });
+        this.form1Visible = !this.form1Visible;
+        this.form2Visible = !this.form2Visible;
+        this.form2Visible = false;
+        this.form3Visible = false;
+        this.form4Visible = false;
+        this.form5Visible = false;
+        this.buttonText = 'PREPARATION A LA DEGUSTATION';
+    }
+
+    toggleForms1() {
+        document.getElementById("content").scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+            inline: "nearest"
+        });
+        this.form3Visible = !this.form3Visible;
+        this.form2Visible = !this.form2Visible;
+        this.buttonText = 'COMPOSITION DE VOTRE PRODUIT';
+    }
+    toggleForms2() {
+        document.getElementById("content").scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+            inline: "nearest"
+        });
+        this.form3Visible = !this.form3Visible;
+        this.form4Visible = !this.form4Visible;
+        this.buttonText = 'TRANSMISSION DE l’ETIQUETTE DU PRODUIT';
+    }
+
+    toggleForms3() {
+        document.getElementById("content").scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+            inline: "nearest"
+        });
+        this.form5Visible = !this.form5Visible;
+        this.form4Visible = !this.form4Visible;
+        this.buttonText = 'PRODUCTION ANNUELLE';
+    }
+
     checkTransactionValues(): void {
         if (parseInt(this.transactionValue) > this.MAX_TRANSACTION_VALUE) {
             this.transactionValue = '';
         }
+    }
+
+
+    activeTabIndex: number = 0;
+    tabsVisibility: boolean[] = [true, false, false]; // Initial state: show the first tab, hide others
+
+    showNextTab() {
+        // Hide the current tab
+        this.tabsVisibility[this.activeTabIndex] = false;
+        // Move to the next tab in a circular manner
+        this.activeTabIndex = (this.activeTabIndex + 1) % this.tabsVisibility.length;
+        // Show the next tab
+        this.tabsVisibility[this.activeTabIndex] = true;
     }
 
 
@@ -118,18 +209,6 @@ export class InscriptionComponent implements OnInit {
         return this.degustationDetails.controls;
     }
 
-    get composition() {
-        return this.compositionDetails.controls;
-    }
-
-    get transmission() {
-        return this.transmissionDetails.controls;
-    }
-
-    get production() {
-        return this.productionDetails.controls;
-    }
-
     get acceptation() {
         return this.acceptationDetails.controls;
     }
@@ -162,19 +241,11 @@ export class InscriptionComponent implements OnInit {
         } else if (this.step == 2) {
             this.produit_step = true;
             this.step++;
+            this.buttonText = 'DONNEES DE(S) PRODUIT(S) PARTICIPANT AU CONCOURS';
         } else if (this.step == 3) {
             this.degustation_step = true;
             this.step++;
         } else if (this.step == 4) {
-            this.composition_step = true;
-            this.step++;
-        } else if (this.step == 5) {
-            this.transmission_step = true;
-            this.step++;
-        } else if (this.step == 6) {
-            this.production_step = true;
-            this.step++;
-        } else if (this.step == 7) {
             this.acceptation_step = true;
             this.step++;
         }
@@ -197,21 +268,12 @@ export class InscriptionComponent implements OnInit {
             this.degustation_step = false;
         }
         if (this.step == 4) {
-            this.composition_step = false;
-        }
-        if (this.step == 5) {
-            this.transmission_step = false;
-        }
-        if (this.step == 6) {
-            this.production_step = false;
-        }
-        if (this.step == 7) {
             this.acceptation_step = false;
         }
     }
 
     submit() {
-        if (this.step == 8) {
+        if (this.step == 5) {
             this.recap_step = true;
             this.router.navigate(['/accueil']);
         }

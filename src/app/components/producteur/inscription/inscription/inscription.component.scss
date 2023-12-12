@@ -44,7 +44,7 @@ header {
   position: sticky;
   top: 0;
   margin-top: -2%;
-  z-index: 1;
+  z-index: 99;
   width: 100%;
   float: left;
   max-width: 1600px;
@@ -1192,4 +1192,71 @@ label {
   color: #000 !important;
   font-size: 14px;
   letter-spacing: 0px;
+}
+
+
+.tabs {
+  position: relative;
+  min-height: 600px; /* This part sucks */
+  list-style: none;
+  clear: both;
+  margin: 25px 0;
+}
+.tab {
+  float: left;
+}
+.tab .label2 {
+  background: #eee;
+  padding: 10px;
+  //border: 1px solid #ccc;
+  margin-left: -1px;
+  position: relative;
+  left: 1px;
+}
+.tab [type="radio"] {
+  opacity: 0;
+}
+.content {
+  position: absolute;
+  top: 65px;
+  left: 0;
+  background: white;
+  right: 0;
+  bottom: 0;
+  //padding: 20px;
+  //border: 1px solid #ccc;
+  overflow: hidden;
+  overflow-y: auto;
+}
+.content > * {
+  opacity: 0;
+}
+[type="radio"]:focus ~ label {
+  ouline: 2px solid blue;
+}
+[type="radio"]:checked ~ label {
+  background: #0D9814;
+  color: #fff !important;
+  border-bottom: 1px solid white;
+  z-index: 2;
+}
+[type="radio"]:checked ~ label ~ .content {
+  z-index: 1;
+}
+[type="radio"]:checked ~ label ~ .content > * {
+  opacity: 1;
+}
+
+.hidden {
+  display: none;
+}
+
+
+.stepper > div {
+  display: none;
+}
+
+/* Show the step with the 'active' class */
+.stepper > div.active {
+  display: block;
 }
