@@ -48,7 +48,7 @@
     "ngx-simple-modal": "^1.4.17",
     "ngx-smart-modal": "^14.0.2",
     "nouislider": "14.6.3",
-    "popper.js": "1.16.1",
+    "popper.js": "^1.16.1",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
