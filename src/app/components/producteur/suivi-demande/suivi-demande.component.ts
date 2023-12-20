@@ -8,12 +8,37 @@ import {Router} from "@angular/router";
 })
 export class SuiviDemandeComponent implements OnInit {
 
-  constructor(private router : Router) { }
+  BVisible:boolean;
+  CVisible:boolean;
+  DVisible:boolean;
+  constructor(private router : Router) {
+    this.BVisible = true;
+    this.CVisible = false;
+    this.DVisible = false;
+  }
 
   ngOnInit(): void {
   }
 
   gotoaccueil(){
     this.router.navigate(['/accueil'])
+  }
+
+  Suivishow(val: number): void
+  {
+    if (val === 1) {
+      this.BVisible = true;
+      this.CVisible = false;
+      this.DVisible = false;
+    } else if (val === 2) {
+      this.BVisible = false;
+      this.CVisible = true;
+      this.DVisible = false;
+    } else if (val === 3) {
+      this.BVisible = false;
+      this.CVisible = false;
+      this.DVisible = true;
+
+    }
   }
 }
