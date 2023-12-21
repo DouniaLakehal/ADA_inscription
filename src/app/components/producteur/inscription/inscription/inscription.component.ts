@@ -43,6 +43,14 @@ export class InscriptionComponent implements OnInit {
     form4Visible: boolean;
     form5Visible: boolean;
 
+    BVisible: boolean;
+    CVisible: boolean;
+    DVisible: boolean;
+    EVisible: boolean;
+    FVisible: boolean;
+
+
+
     transactionValue = null;
     MAX_TRANSACTION_VALUE : number;
     buttonText: string= 'DONNEES DE(S) PRODUIT(S) PARTICIPANT AU CONCOURS';
@@ -56,6 +64,12 @@ export class InscriptionComponent implements OnInit {
         this.form3Visible = false;
         this.form4Visible = false;
         this.form5Visible = false;
+
+        this.BVisible = true;
+        this.CVisible = false;
+        this.DVisible = false;
+        this.EVisible = false;
+        this.FVisible = false;
     }
 
     ngOnInit() {
@@ -152,6 +166,9 @@ export class InscriptionComponent implements OnInit {
     editMode = false;
     editIndex;
 
+
+
+
     addData(form) {
         var val = form.controls;
         const newData = {
@@ -160,14 +177,26 @@ export class InscriptionComponent implements OnInit {
             pourcent: val.pourcent1.value,
             fournisseur: val.fournisseur1.value,
             lieu: val.lieu1.value
+        };
+
+        // Ensure this.data is initialized as an array
+        if (!this.data) {
+            this.data = [];
         }
+
         if (this.editMode) {
-            this.data[this.editIndex] = newData;
+            if (this.editIndex >= 0 && this.editIndex < this.data.length) {
+                this.data[this.editIndex] = newData;
+            } else {
+                console.error('Invalid editIndex:', this.editIndex);
+            }
         } else {
             this.data.push(newData);
         }
+
         this.form1.reset();
     }
+
 
     onDel(index) {
         this.data.splice(index, 1);
@@ -236,19 +265,42 @@ export class InscriptionComponent implements OnInit {
         });
 
         if (this.step == 1) {
-            this.personal_step = true;
             this.step++;
         } else if (this.step == 2) {
-            this.produit_step = true;
             this.step++;
             this.buttonText = 'DONNEES DE(S) PRODUIT(S) PARTICIPANT AU CONCOURS';
         } else if (this.step == 3) {
-            this.degustation_step = true;
             this.step++;
         } else if (this.step == 4) {
-            this.acceptation_step = true;
             this.step++;
         }
+         else if (this.step == 5) {
+             this.step++;
+        }
+        else if (this.step == 6) {
+            this.step++;
+        }
+        else if (this.step == 7) {
+            this.step++;
+        }
+        else if (this.step == 8) {
+            this.step++;
+        }
+
+    }
+
+
+    backto(){
+        document.getElementById("msform").scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+            inline: "nearest"
+        });
+        this.step==2;
+        this.step--;
+        this.step--;
+        this.step--;
+        this.step--;
     }
 
     previous() {
@@ -258,22 +310,10 @@ export class InscriptionComponent implements OnInit {
             inline: "nearest"
         });
         this.step--;
-        if (this.step == 1) {
-            this.personal_step = false;
-        }
-        if (this.step == 2) {
-            this.produit_step = false;
-        }
-        if (this.step == 3) {
-            this.degustation_step = false;
-        }
-        if (this.step == 4) {
-            this.acceptation_step = false;
-        }
     }
 
     submit() {
-        if (this.step == 5) {
+        if (this.step == 8) {
             this.recap_step = true;
             this.router.navigate(['/accueil']);
         }
@@ -345,4 +385,50 @@ export class InscriptionComponent implements OnInit {
         const i = Math.floor(Math.log(bytes) / Math.log(k));
         return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
     }
+
+
+
+
+    showHideSousCat(val: any): void {
+        debugger;
+        if (val.value === "1") {
+            console.log("--1");
+            this.BVisible = true;
+            this.CVisible = false;
+            this.DVisible = false;
+            this.EVisible = false;
+            this.FVisible = false;
+        } else if (val.value === "2") {
+            console.log("--2");
+            this.BVisible = false;
+            this.CVisible = true;
+            this.DVisible = false;
+            this.EVisible = false;
+            this.FVisible = false;
+        } else if (val.value === "3") {
+            console.log("--3");
+            this.BVisible = false;
+            this.CVisible = false;
+            this.DVisible = true;
+            this.EVisible = false;
+            this.FVisible = false;
+        } else if (val.value === "4") {
+            console.log("--4");
+            this.BVisible = false;
+            this.CVisible = false;
+            this.DVisible = false;
+            this.EVisible = true;
+            this.FVisible = false;
+        } else{
+            console.log("--5");
+            this.BVisible = false;
+            this.CVisible = false;
+            this.DVisible = false;
+            this.EVisible = false;
+            this.FVisible = true;
+        }
+    }
+
+
+
 }
