@@ -27,6 +27,7 @@ import { ResultatComponent } from './producteur/resultat/resultat.component';
 import { AttestattionsComponent } from './producteur/attestattions/attestattions.component';
 
 
+
 @NgModule({
     imports: [
         CommonModule,
@@ -36,7 +37,7 @@ import { AttestattionsComponent } from './producteur/attestattions/attestattions
         RouterModule,
         JwBootstrapSwitchNg2Module,
         ReactiveFormsModule,
-        NgxAutocompleteModule,
+        NgxAutocompleteModule
     ],
     declarations: [
         ComponentsComponent,

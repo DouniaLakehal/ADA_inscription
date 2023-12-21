@@ -1,3 +1,4 @@
+
 <div class="wrapper">
     <div class="page-header " style="background-image: url('assets/img/antoine-barres.png')">
         <div class="filter"></div>
@@ -10,115 +11,186 @@
                             <h1 class="h1">Bienvenue</h1>
                             <form class="form" autocomplete="off">
                                 <div class="group">
-                                    <div class="radiobutton" style="margin-top: 20px;">
+                                    <div class="radiobutton" style="margin-top: 20px;" >
                                         <label class="label-custom">
-                                            <input type="radio" name="radio" checked>
+                                            <input 
+                                            value="Groupement"
+                                            type="radio" name="radio"  [(ngModel)]="selectedOption" >
                                             <span class="checkmark"></span>
-                                            <span class="label-text span1">Producteur</span>
+                                            <span class="label-text span1">Groupement</span>
                                         </label>
                                         <label class="label-custom">
-                                            <input type="radio" name="radio">
+                                            <input 
+                                            value="Individuel"
+                                            type="radio" name="radio"  [(ngModel)]="selectedOption">
                                             <span class="checkmark"></span>
-                                            <span class="label-text span1">Juré</span>
+                                            <span class="label-text span1">Individuel</span>
                                         </label>
                                         <label class="label-custom">
-                                            <input type="radio" name="radio">
+                                            <input 
+                                            value="Société"
+                                            type="radio" name="radio"  [(ngModel)]="selectedOption" >
                                             <span class="checkmark"></span>
-                                            <span class="label-text span1" >Consommateur</span>
+                                            <span class="label-text span1" >Société</span>
                                         </label>
                                     </div>
-                                </div>
-                                <div class="row" style="width: 90%;">
-                                    <div class="col-lg-12">
+                                </div>                           
+                                <div class="row" style="width: 90%;" *ngIf="selectedOption === 'Groupement'" >
+                                    <div class="col-lg-6" >
                                         <div class="group">
-                                            <label class="label2">Groupement / Société</label>
+                                            <label class="label2">Identifiant du groupement</label>
                                             <ngx-autocomplete [placeholderValue]="'...'" [searchKeyword]="'name'"
                                                               [inputId]="'searchEmployee'" yyy
                                                               [entries]="employees"
-                                                              (selectedValue)="selectEvent($event)">
+                                                              (selectedValue)="selectEvent($event)"
+                                                              [(ngModel)]="identifiantDuGroupement">
                                             </ngx-autocomplete>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6" >
+                                        <div class="group">
+                                            <label class="label2">Type de Groupement</label>
+                                            <select 
+                                            [(ngModel)]="typeDeGroupement"
+                                            class="form-control select10">
+                                                <option>Copérative</option>
+                                                <option>JE</option>
+                                                <option>Unio</option>
+                                            </select>
+                                            <span class="highlight"></span>
+                                            <span class="bar"></span>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row" style="width: 90%; margin-bottom: -21px !important;">
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-12" *ngIf="selectedOption === 'Individuel'">
                                         <div class="group">
-                                            <input class="input10" type="text" required>
+                                            <input 
+                                            [(ngModel)]="cin"
+                                            class="input10" type="text" required>
+                                            <span class="highlight"></span>
+                                            <span class="bar"></span>
+                                            <label class="label">CIN</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12" *ngIf="selectedOption === 'Société'">
+                                        <div class="group">
+                                            <input
+                                            [(ngModel)]="ice"
+                                            class="input10" type="text" required>
+                                            <span class="highlight"></span>
+                                            <span class="bar"></span>
+                                            <label class="label">ICE</label>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="row" style="width: 90%; margin-bottom: -21px !important;" *ngIf="
+                                selectedOption === 'Groupement' ||
+                                selectedOption === 'Individuel' ||
+                                selectedOption === 'Société'
+                              ">
+                                    <div class="col-lg-6" style="margin-top: 15px;">
+                                        <div class="group">
+                                            <input 
+                                            [(ngModel)]="nom"
+                                            class="input10" type="text" required>
                                             <span class="highlight"></span>
                                             <span class="bar"></span>
                                             <label class="label">Nom</label>
                                         </div>
+                                        
                                     </div>
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-6" style="margin-top: 15px;">
                                         <div class="group">
-                                            <input class="input10" type="text" required>
+                                            <input 
+                                            [(ngModel)]="prenom"
+                                            class="input10" type="text" required>
                                             <span class="highlight"></span>
                                             <span class="bar"></span>
                                             <label class="label">Prénom</label>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row" style="width: 90%;">
+                                <div class="row" style="width: 90%;" *ngIf="
+                                selectedOption === 'Groupement' ||
+                                selectedOption === 'Individuel' ||
+                                selectedOption === 'Société'
+                              ">
                                     <div class="col-lg-6">
                                         <div class="group">
                                             <label class="label2">Région</label>
-                                            <select class="form-control select10" style="background-color:antiquewhite !important;
-  border: none !important;
-  margin: 0 !important;
-  height: 34px !important;
-  width: 100%;
-  font-size: 12px;
-  padding: 5px 10px 5px 5px;
-  color: #66512c !important;
-  border-bottom: 1px solid #66512c !important;">
-                                                <option>Chaouia-Ouardigha</option>
-                                                <option>Doukkala-Abda</option>
-                                                <option>Fès-Boulemane</option>
-                                                <option>Gharb-Chrarda-Beni Hssen</option>
-                                                <option>Grand Casablanca</option>
-                                                <option>Guelmim-Es Semara</option>
-                                                <option>Laâyoune-Boujdour-Sakia el Hamra</option>
-                                                <option>Marrakech-Tensift-Al Haouz</option>
-                                                <option>Meknès-Tafilalet</option>
-                                                <option>L'Oriental</option>
-                                                <option>Oued ed Dahab-Lagouira</option>
-                                                <option>Rabat-Salé-Zemmour-Zaër</option>
-                                                <option>Souss-Massa-Drâa</option>
-                                                <option>Tadla-Azilal</option>
-                                                <option>Tanger-Tétouan</option>
-                                                <option>Taza-Al Hoceïma-Taounate</option>
+                                            <select 
+                                            [(ngModel)]="selectedRegion"
+                                            (change)="onRegionChange()"
+                                            class="form-control select10">
+                                                <option *ngFor="let region of regions"
+                                                [value]="region"
+                                                name="region"
+                                                >{{region}}</option>
                                             </select>
                                             <span class="highlight"></span>
                                             <span class="bar"></span>
                                         </div>
-                                    </div>
+                                    </div >
                                     <div class="col-lg-6">
                                         <div class="group">
                                             <label class="label2">Province</label>
-                                            <select class="form-control select10" style="background-color:antiquewhite !important;
-  border: none !important;
-  margin: 0 !important;
-  height: 34px !important;
-  width: 100%;
-  font-size: 12px;
-  padding: 5px 10px 5px 5px;
-  color: #66512c !important;
-  border-bottom: 1px solid #66512c !important;">
-                                                <option>Préfecture de Rabat</option>
-                                                <option>Préfecture de Salé</option>
-                                                <option>Préfecture de Skhirat-Témara</option>
-                                                <option>Province de Khémisset</option>
+                                            <select 
+                                            [(ngModel)]="selectedProvince"
+                                            class="form-control select10">
+                                                <option *ngFor="let province of provinces"
+                                                [value]="province">{{province}}</option>
                                             </select>
                                             <span class="highlight"></span>
                                             <span class="bar"></span>
                                         </div>
                                     </div>
                                 </div>
-
+                                <div class="row" style="width: 90%;" *ngIf="
+                                selectedOption === 'Groupement' ||
+                                selectedOption === 'Individuel' ||
+                                selectedOption === 'Société'
+                              ">
+                                    <div class="col-lg-6">
+                                        <div class="group">
+                                            <label class="label2">Catégorie</label>
+                                            <select 
+                                            class="form-control select10"
+                                            [(ngModel)]="selectedCategory"
+                                            (change)="onCategoryChange()"
+                                            >
+                                                <option *ngFor="let category of categories"
+                                                [value]="category"
+                                                name="category">{{category}}</option>  
+                                            </select>
+                                            <span class="highlight"></span>
+                                            <span class="bar"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="group">
+                                            <label class="label2">Sous Catégory</label>
+                                            <select 
+                                            [(ngModel)]="selectedSubCategory"
+                                            class="form-control select10">
+                                                <option
+                                                *ngFor="let subCategory of subCategories"
+                                                [value]="subCategory"
+                                                >{{subCategory}}</option>
+                                            </select>
+                                            <span class="highlight"></span>
+                                            <span class="bar"></span>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="row" style="width: 90%;">
                                     <div class="col-lg-6">
                                         <div class="group">
-                                            <input class="input10" type="text" required>
+                                            <input 
+                                            [(ngModel)]="email"
+                                            class="input10" type="text" required>
                                             <span class="highlight"></span>
                                             <span class="bar"></span>
                                             <label class="label">Email</label>
@@ -126,43 +198,15 @@
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="group">
-                                            <input class="input10" type="text" required>
+                                            <input 
+                                            [(ngModel)]="tel"
+                                            class="input10" type="text" required>
                                             <span class="highlight"></span>
                                             <span class="bar"></span>
-                                            <label class="label">Confirmation</label>
+                                            <label class="label">Télephone</label>
                                         </div>
                                     </div>
                                 </div>
-
-                                <div class="row" style="width: 90%;">
-                                    <div class="col-lg-6">
-                                        <div class="group">
-                                            <input class="input10" type="text" required>
-                                            <span class="highlight"></span>
-                                            <span class="bar"></span>
-                                            <label class="label">Tél</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="group">
-                                            <input class="input10" type="text" required>
-                                            <span class="highlight"></span>
-                                            <span class="bar"></span>
-                                            <label class="label">Fax</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row" style="width: 90%;">
-                                    <div class="col-lg-12">
-                                        <div class="group">
-                                            <input class="input10" style="height: 50px" type="text" required>
-                                            <span class="highlight"></span>
-                                            <span class="bar" style="width: 640px; !important;"></span>
-                                            <label class="label">Adresse</label>
-                                        </div>
-                                    </div>
-                                </div>
-
                                 <button class="button submit" (click)=showAlert()>Sauvegarder</button>
                             </form>
                         </div>
@@ -183,7 +227,7 @@
                         <p class="desc ppp">Plateforme Inscription au Concours Marocain <br> des Produits du Terroir
                         </p>
                         <img class="flower smaller" src="./assets/img/angular2-logo.png" alt="1357d638624297b"
-                             border="0">
+                            style="border: 0;">
                         <p class="account ppp">Vous ne possédez pas encore de code d'accès ?</p>
                         <button class="button" (click)="togglePinkbox()">DEMANDER UN CODE</button>
                     </div>

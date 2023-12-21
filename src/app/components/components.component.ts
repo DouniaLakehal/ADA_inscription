@@ -156,4 +156,201 @@ export class ComponentsComponent implements OnInit {
         this.selected_employee = JSON.stringify(event)
     }
 
+    selectedOption: string = 'Groupement';
+    identifiantDuGroupement: string = '';
+    typeDeGroupement: string= '';
+    nomDeGroupement: string= '';
+    المجموعة: string = '';
+    nom: string = '';
+    prenom: string = '';
+    region: string = '';
+    province: string = '';
+    categorie: string = '';
+    sousCategorie: string = '';
+    email: string = '';
+    tel: string = '';
+  
+    data: Record<string, string[]> = {
+      "Miels": [
+        "D'rgumes",
+        "D'euphorbe",
+        'De thym',
+        "D'origan",
+        "D'eucaliptus",
+        "D'arbousier",
+        'De Romarin',
+        'Multi fleurs',
+        'autre miels',
+      ],
+  
+      'Huiles Alimentaires': [
+        "Huile d'olive",
+        "Huile d'argane (alimentaire)",
+        "Produits à base d'huile d'olive",
+        'Autre huiles',
+      ],
+  
+      "Produits D'origine Animal": [
+        'Fromage Frais',
+        'Autres Produits laitiers(beurre, leben, yaourts, crèmes, etc)',
+        'Khlia',
+        'Produits à base de viande',
+        'autre produits',
+      ],
+  
+      'Dattes Et Autre Produits Origine': [
+        'Dattes et produits à base de dattes',
+        "Olives et produits à base d'olive",
+        'Fruits séché',
+        'Produit à base de Fruits (jus, sirop, pâtes de fruits, etc)',
+        'Produits à base de légumes',
+        'Confitures et gélées',
+        'Amlou',
+        'Vinaigres',
+      ],
+  
+      'Produits De Cereale': [
+        'Couscous blé dur',
+        'Couscous multi-céréales',
+        'Couscous aromatisé',
+        'Autres produits à base de céréales',
+        'Produits à base de légumes',
+        'Confitures et gélées',
+        'Amlou',
+        'Vinaigres',
+      ],
+    };
+
+    categories: string[]= Object.keys(this.data);
+    selectedCategory: string= '';
+    subCategories: string[] = [''];
+    selectedSubCategory: string = '';
+
+
+    onCategoryChange(){
+      this.subCategories = this.data[this.selectedCategory] || [];
+    }
+
+  regionData : Record<string, string[]> = {
+      "Tanger-Tétouan-Al Hoceima": [
+          "Préfecture de Tanger-Assilah",
+          "Préfecture de M'diq-Fnideq",
+          'Province de Tétouan',
+          "Province de Fahs-Anjra",
+          "Province de Larache",
+          "Province d'Al Hoceïma",
+          'Province de Chefchaouen',
+          "Province d'Ouezzane", 
+        ],
+
+        " l'Oriental": [
+          "Préfecture d'Oujda-Angad",
+          "Province de Nador",
+          'Province de Driouch',
+          "Province de Jerada",
+          "Province de Berkane",
+          "Province de Taourirt",
+          'Province de Guercif',
+          "Province de Figuig",
+        ],
+
+        " Fès-Meknès": [
+          "Préfecture de Fès",
+          "Préfecture de Meknès",
+          "Province d'El Hajeb",
+          "Province d'Ifrane",
+          "Province de Moulay Yaâcoub",
+          "Province de Séfrou",
+          'Province de Boulemane',
+          "Province de Taounate",
+          "Province de Taza",
+        ],
+
+        "  Rabat-Salé-Kénitra": [
+          "Préfecture de Rabat",
+          "Préfecture de Salé",
+          "Préfecture de Skhirate-Témara",
+          "Province de Kénitra",
+          "Province de Khémisset",
+          "Province de Sidi Kacem",
+          'Province de Sidi Slimane',
+        ],
+
+        "  Béni Mellal-Khénifra": [
+          "Province de Béni-Mellal",
+          "Province d'Azilal",
+          "Province de Fquih Ben Salah",
+          "Province de Khénifra",
+          "Province de Khouribga",
+        ],
+
+        " Casablanca-Settas": [
+          "Préfecture de Casablanca",
+          "Préfecture de Mohammédia",
+          "Province d'El Jadida",
+          "Province de Nouaceur",
+          "Province de Médiouna",
+          "Province de Benslimane",
+          'Province de Berrechid',
+          "Province de Settat",
+          "Province de Sidi Bennour",
+        ],
+
+        " Marrakech-Safi": [
+          "Préfecture de Marrakech",
+          "Province de Chichaoua",
+          "Province d'Al Haouz",
+          "Province d'El Kelaâ des Sraghna",
+          "Province d'Essaouira",
+          "Province de Rehamna",
+          'Province de Safi',
+          "Province de Youssoufia",
+        ],
+
+        " Drâa-Tafilalet": [
+          "Province d'Errachidia",
+          "Province de Ouarzazate",
+          "Province de Midelt",
+          "Province de Tinghir",
+          "Province de Zagora",
+        ],
+
+        " Souss-Massa": [
+          "Préfecture d'Agadir Ida-Outanane",
+          "Préfecture d'Inezgane-Aït Melloul",
+          "Province de Chtouka-Aït Baha",
+          "Province de Taroudant",
+          "Province de Tiznit",
+          "Province de Tata",
+        ],
+
+        " Guelmim-Oued Noun": [
+          "Province de Guelmim",
+          "Province d'Assa-Zag",
+          "Province de Tan-Tan",
+          "Province de Sidi Ifni",
+        ],
+
+        "  Laâyoune-Sakia El Hamra": [
+          "Province de Laâyoune",
+          "Province de Boujdour",
+          "Province de Tarfaya",
+          "Province d'Es-Semara",
+        ],
+
+        "   Dakhla-Oued Ed Dahab": [
+          "Province d'Oued Ed Dahab",
+          "Province d'Aousserd",
+        ],
+  }
+
+  regions: string[]= Object.keys(this.regionData);
+  selectedRegion: string = '';
+  provinces: string[]= [''];
+  selectedProvince : string = '';
+
+  onRegionChange(){
+      this.provinces = this.regionData[this.selectedRegion] || [];
+  }
+
 }
